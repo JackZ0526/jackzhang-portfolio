@@ -14,7 +14,7 @@ export default function Footer() {
           rel="noopener noreferrer"
           className="site-footer__link site-footer__link--social"
         >
-          <LinkedInIcon size={39} />
+          <LinkedInIcon size={18} />
           LINKEDIN
         </a>
       </div>

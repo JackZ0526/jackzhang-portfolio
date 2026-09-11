@@ -13,6 +13,7 @@ import PhaseSwapDemo from './pages/PhaseSwapDemo'
 import UnderDevelopment from './pages/UnderDevelopment'
 import NotFound from './pages/NotFound'
 import SiteLayout from './components/SiteLayout'
+import './styles/redesign.css'
 
 createRoot(document.getElementById('root')!).render(
   <StrictMode>

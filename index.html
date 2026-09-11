@@ -4,6 +4,14 @@
     <meta charset="UTF-8" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script>
+      (() => {
+        let saved;
+        try { saved = localStorage.getItem('portfolio-theme'); } catch {}
+        document.documentElement.dataset.theme = saved === 'light' || saved === 'dark'
+          ? saved : matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+      })();
+    </script>
     <title>HOME | Portfolio</title>
     <style>
       /* Fonts */
@@ -26,6 +34,8 @@
       }
       html, body { background: var(--color-11); color: var(--color-15); margin: 0; padding: 0; }
       body { font-family: 'din-next-light', 'Arial', sans-serif; -webkit-font-smoothing: antialiased; }
+      html[data-theme='dark'], html[data-theme='dark'] body { background: #0b0d10; color: #f1f3f5; }
+      html[data-theme='light'], html[data-theme='light'] body { background: #f8f9fb; color: #171c24; }
     </style>
   </head>
   <body>

@@ -1,65 +1,30 @@
-import { useState, type CSSProperties } from 'react'
+import { useRef, useState } from 'react'
 import { ArrowLeft, ArrowRight } from 'lucide-react'
 import './ProjectCarousel.css'
 
 export type Slide = { src: string; alt: string }
 
-/**
- * Top-of-page project gallery.
- *
- * Measured on the live Wix site at 1280x800: the pro-gallery keeps every slide in
- * the DOM as a horizontal track — each slide is 1317x741 with a 40px gap, and the
- * first slide is anchored at x=65 (Harvest Onslaught: x=244). The track is clipped
- * by the viewport, so at rest only the first slide is visible.
- */
-export default function ProjectCarousel({
-  slides,
-  offset = 65,
-  ariaLabel = 'Project gallery',
-}: {
-  slides: Slide[]
-  offset?: number
-  ariaLabel?: string
+/** Responsive gallery; offset remains accepted for compatibility with existing pages. */
+export default function ProjectCarousel({ slides, ariaLabel = 'Project gallery' }: {
+  slides: Slide[]; offset?: number; ariaLabel?: string
 }) {
   const [index, setIndex] = useState(0)
-  if (slides.length === 0) return null
-  const go = (delta: number) => setIndex((i) => (i + delta + slides.length) % slides.length)
-
+  const touchStart = useRef<number | null>(null)
+  if (!slides.length) return null
+  const go = (delta: number) => setIndex(i => (i + delta + slides.length) % slides.length)
   return (
-    <div
-      className="project-carousel"
-      style={{ '--carousel-offset': offset + 'px' } as CSSProperties}
-      role="group"
-      aria-label={ariaLabel}
-    >
-      <div
-        className="project-carousel__track"
-        style={{ transform: 'translateX(' + -index * 1357 + 'px)' }}
-      >
-        {slides.map((s) => (
-          <img key={s.src} className="project-carousel__img" src={s.src} alt={s.alt} />
-        ))}
+    <div className="project-carousel" role="region" aria-roledescription="carousel" aria-label={ariaLabel}
+      onKeyDown={e => { if (e.key === 'ArrowLeft') { e.preventDefault(); go(-1) } if (e.key === 'ArrowRight') { e.preventDefault(); go(1) } }}
+      onTouchStart={e => { touchStart.current = e.touches[0].clientX }}
+      onTouchEnd={e => { if (touchStart.current !== null) { const delta = e.changedTouches[0].clientX - touchStart.current; if (Math.abs(delta) > 50) go(delta < 0 ? 1 : -1) } touchStart.current = null }}>
+      <div className="project-carousel__track" style={{ transform: `translateX(-${index * 100}%)` }}>
+        {slides.map((s, i) => <img key={s.src} className="project-carousel__img" src={s.src} alt={s.alt} aria-hidden={i !== index} loading={i === 0 ? 'eager' : 'lazy'} />)}
       </div>
-      {slides.length > 1 && (
-        <>
-          <button
-            type="button"
-            className="project-carousel__btn project-carousel__btn--prev"
-            aria-label="Previous Item"
-            onClick={() => go(-1)}
-          >
-            <ArrowLeft size={28} color="#fff" />
-          </button>
-          <button
-            type="button"
-            className="project-carousel__btn project-carousel__btn--next"
-            aria-label="Next Item"
-            onClick={() => go(1)}
-          >
-            <ArrowRight size={28} color="#fff" />
-          </button>
-        </>
-      )}
+      {slides.length > 1 && <>
+        <button type="button" className="project-carousel__btn project-carousel__btn--prev" aria-label="Previous Item" onClick={() => go(-1)}><ArrowLeft size={22} /></button>
+        <button type="button" className="project-carousel__btn project-carousel__btn--next" aria-label="Next Item" onClick={() => go(1)}><ArrowRight size={22} /></button>
+        <div className="project-carousel__pagination"><span aria-live="polite" aria-atomic="true">{String(index + 1).padStart(2, '0')} / {String(slides.length).padStart(2, '0')}</span><div>{slides.map((s, i) => <button key={s.src} aria-label={`Show image ${i + 1}`} aria-pressed={index === i} onClick={() => setIndex(i)} />)}</div></div>
+      </>}
     </div>
   )
 }

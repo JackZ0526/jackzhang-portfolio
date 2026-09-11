@@ -20,7 +20,6 @@ export default function Sidenav({ tabs, trackActive = true }: SidenavProps) {
 
   useEffect(() => {
     if (!trackActive) {
-      setActiveId(tabs[0]?.id ?? '')
       return
     }
     const ids = tabs.map((t) => t.id)
@@ -28,7 +27,6 @@ export default function Sidenav({ tabs, trackActive = true }: SidenavProps) {
       .map((id) => document.getElementById(id))
       .filter((el): el is HTMLElement => !!el)
     if (sections.length === 0) {
-      setActiveId(tabs[0]?.id ?? '')
       return
     }
     const observer = new IntersectionObserver(
@@ -56,6 +54,7 @@ export default function Sidenav({ tabs, trackActive = true }: SidenavProps) {
           <li key={t.id}>
             <a
               href={`#${t.id}`}
+              aria-current={activeId === t.id ? 'location' : undefined}
               className={`sidenav__tab ${activeId === t.id ? 'is-active' : ''}`}
             >
               <span className="sidenav__tab-text">{t.label}</span>

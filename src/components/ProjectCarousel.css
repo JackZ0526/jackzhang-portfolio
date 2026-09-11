@@ -1,60 +1,15 @@
-/* Project gallery strip — geometry taken from the live site at 1280x800:
- * every slide is 1317x741 with a 40px gap, the first slide is anchored at x=65
- * (Harvest Onslaught: x=244) and the viewport clips the rest of the track. */
-.project-carousel {
-  position: relative;
-  /* The offset is injected inline per page; the container is clipped by the viewport. */
-  width: calc(100vw - var(--carousel-offset, 65px));
-  max-width: 1317px;
-  margin-left: var(--carousel-offset, 65px);
-  /* The slide keeps its 1317px width and is clipped by the viewport edge,
-     exactly like the Wix pro-gallery (the inline style sets width per offset). */
-  overflow: hidden;
-  background: #000;
-  margin-top: 32px;
-  margin-bottom: 40px;
-}
-
-.project-carousel__track {
-  display: flex;
-  gap: 40px;
-  transition: transform 0.35s ease;
-}
-
-.project-carousel__img {
-  flex: 0 0 1317px;
-  width: 1317px;
-  max-width: none;
-  height: auto;
-  aspect-ratio: 1317 / 741;
-  object-fit: cover;
-  display: block;
-}
-
-.project-carousel__btn {
-  position: absolute;
-  top: 50%;
-  transform: translateY(-50%);
-  width: 56px;
-  height: 56px;
-  border-radius: 50%;
-  border: 0;
-  background: rgba(0, 0, 0, 0.35);
-  color: #fff;
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  cursor: pointer;
-}
-.project-carousel__btn--prev { left: 28px; }
-.project-carousel__btn--next { right: 28px; }
-.project-carousel__btn:hover { background: rgba(0, 0, 0, 0.6); }
-
-@media (max-width: 768px) {
-  .project-carousel { margin: 24px 0 24px; width: 100%; max-width: 100%; margin-left: 0; }
-  .project-carousel__track { gap: 16px; }
-  .project-carousel__img { flex: 0 0 100%; width: 100%; }
-  .project-carousel__btn { width: 40px; height: 40px; }
-  .project-carousel__btn--prev { left: 12px; }
-  .project-carousel__btn--next { right: 12px; }
-}
+.project-carousel { position: relative; width: min(100% - 112px,1200px); max-width: 1200px; margin: 36px auto 50px; overflow: hidden; border: 1px solid var(--line); border-radius: 8px; background: #080a0d; touch-action: pan-y; }
+.harvest-page .project-carousel { width: 100%; margin: 45px 0 10px; }
+.project-carousel__track { display: flex; gap: 0; transition: transform .7s cubic-bezier(.22,1,.36,1); }
+.project-carousel__img { flex: 0 0 100%; min-width: 0; width: 100%; max-width: 100%; height: auto; aspect-ratio: 16/9; object-fit: contain; }
+.project-carousel__btn { position: absolute; top: 50%; transform: translateY(-50%); width: 44px; height: 44px; border-radius: 50%; border: 1px solid #ffffff50; background: #090d15ba; color: white; display: grid; place-items: center; }
+.project-carousel__btn--prev { left: 20px; }
+.project-carousel__btn--next { right: 20px; }
+.project-carousel__btn:hover { background: #263341; }
+.project-carousel__pagination { padding: 13px 20px; border-top: 1px solid #ffffff25; background: #0e1218; display: flex; align-items: center; justify-content: space-between; color: #c6d2df; font: 11px var(--font-mono); }
+.project-carousel__pagination>div { display: flex; gap: 2px; }
+.project-carousel__pagination button { width: 28px; height: 24px; padding: 10px 3px; background-clip: content-box; background-color: #535d6a; border-radius: 0; }
+.project-carousel__pagination button[aria-pressed=true] { background-color: #bfe8ff; }
+@media(max-width:1000px) { .project-carousel { width: calc(100% - 64px); } }
+@media(max-width:640px) { .project-carousel { width: calc(100% - 40px); } .project-carousel__btn { width: 36px; height: 36px; } .project-carousel__btn--prev { left: 10px; } .project-carousel__btn--next { right: 10px; } }
+@media(prefers-reduced-motion:reduce) { .project-carousel__track { transition: none; } }

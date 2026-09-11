@@ -1,14 +1,26 @@
-import { useState, type FormEvent } from 'react'
+import { useEffect, useState } from 'react'
+import { Copy, Check } from 'lucide-react'
 import { useDocumentTitle } from '../hooks/useDocumentTitle'
 import './About.css'
 
 export default function About() {
   useDocumentTitle('ABOUT')
-  const [submitted, setSubmitted] = useState(false)
+  const email = 'jackzhang0526@gmail.com'
+  const [copyStatus, setCopyStatus] = useState<'idle' | 'copied' | 'error'>('idle')
 
-  const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
-    e.preventDefault()
-    setSubmitted(true)
+  useEffect(() => {
+    if (copyStatus !== 'copied') return
+    const timer = window.setTimeout(() => setCopyStatus('idle'), 2200)
+    return () => window.clearTimeout(timer)
+  }, [copyStatus])
+
+  const copyEmail = async () => {
+    try {
+      await navigator.clipboard.writeText(email)
+      setCopyStatus('copied')
+    } catch {
+      setCopyStatus('error')
+    }
   }
 
   return (
@@ -51,44 +63,26 @@ export default function About() {
       </section>
 
       <section className="about__contact" id="contact">
+        <div className="about__contact-intro">
         <h2 className="about__h2">LET'S PLAY!</h2>
         <p className="about__contact-tagline">
           FEEL FREE TO CONTACT ME FOR FUTURE WORK AND PARTNERSHIPS
         </p>
-        <form className="contact-form" onSubmit={handleSubmit}>
-          <div className="contact-form__row">
-            <div className="contact-form__field">
-              <label htmlFor="firstName" className="contact-form__label">First Name</label>
-              <input id="firstName" name="firstName" type="text" className="contact-form__input" />
-            </div>
-            <div className="contact-form__field">
-              <label htmlFor="lastName" className="contact-form__label">Last Name</label>
-              <input id="lastName" name="lastName" type="text" className="contact-form__input" />
-            </div>
-          </div>
-          <div className="contact-form__row">
-            <div className="contact-form__field contact-form__field--full">
-              <label htmlFor="email" className="contact-form__label">Email *</label>
-              <input id="email" name="email" type="email" required className="contact-form__input" />
-            </div>
-          </div>
-          <div className="contact-form__row">
-            <div className="contact-form__field contact-form__field--full">
-              <label htmlFor="subject" className="contact-form__label">Subject</label>
-              <input id="subject" name="subject" type="text" className="contact-form__input" />
-            </div>
-          </div>
-          <div className="contact-form__row">
-            <div className="contact-form__field contact-form__field--full">
-              <label htmlFor="message" className="contact-form__label">Leave me a message...</label>
-              <textarea id="message" name="message" rows={5} className="contact-form__input contact-form__textarea" />
-            </div>
-          </div>
-          <div className="contact-form__row">
-            <button type="submit" className="contact-form__submit">Submit</button>
-          </div>
-          {submitted && <p className="contact-form__ok" role="status">Thanks! I'll be in touch.</p>}
-        </form>
+        </div>
+        <div className="about__contact-channel">
+        <div className="contact-email">
+          <div className="contact-email__command" aria-hidden="true"><span>$</span> contact --email</div>
+          <span className="contact-email__address">{email}</span>
+          <button type="button" className="contact-email__copy" onClick={copyEmail}
+            aria-label="Copy email address" data-copied={copyStatus === 'copied'}>
+            {copyStatus === 'copied' ? <Check size={16} aria-hidden="true" /> : <Copy size={16} aria-hidden="true" />}
+            <span className="contact-email__tooltip" aria-hidden="true">{copyStatus === 'copied' ? 'Copied!' : 'Copy email'}</span>
+          </button>
+        </div>
+        <p className="contact-email__status" role="status" data-error={copyStatus === 'error'}>
+          {copyStatus === 'copied' ? 'Email address copied.' : copyStatus === 'error' ? 'Couldn’t copy automatically. Please select and copy the email address above.' : ''}
+        </p>
+        </div>
       </section>
     </div>
   )

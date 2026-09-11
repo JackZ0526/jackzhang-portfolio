@@ -1,6 +1,9 @@
 // Project metadata, kept identical to jackzhang.ca wording.
 
 export type Project = {
+  kind?: 'Games' | 'Web Apps' | 'AI & Experiments'
+  tags?: string[]
+  featured?: boolean
   slug: string
   number: string // '01' | '02' | '03'
   category: string // horizontal label (e.g. THIRD PERSON SHOOTER)
@@ -22,6 +25,9 @@ export type Project = {
 export const projects: Project[] = [
   {
     slug: 'harvest-onslaught',
+    kind: 'Games',
+    tags: ['Level Design', 'Blueprint'],
+    featured: true,
     number: '01',
     category: 'THIRD PERSON SHOOTER',
     title: 'Harvest Onslaught',
@@ -40,6 +46,9 @@ export const projects: Project[] = [
   },
   {
     slug: 'breakneck-battle-tank',
+    kind: 'Games',
+    tags: ['Level Design', 'C#'],
+    featured: true,
     number: '02',
     category: 'QUEST',
     title: 'Breakneck Battle Tank',
@@ -56,6 +65,9 @@ export const projects: Project[] = [
   },
   {
     slug: 'taleofnexus-thetrueguardian',
+    kind: 'Games',
+    tags: ['Level Design', 'Blueprint'],
+    featured: true,
     number: '03',
     category: 'CASUAL GAME',
     title: 'Tale of Nexus:',
@@ -70,6 +82,23 @@ export const projects: Project[] = [
     devTime: '2 months',
     altCover: 'HighresScreenshot00002.png',
     boldPhrases: ['3rd person action-adventure fantasy', 'recover two mythological artifacts', 'restore harmony to the realms'],
+  },
+  {
+    slug: 'phase-swap-demo',
+    number: '04',
+    kind: 'Games',
+    tags: ['Level Design', 'Whiteboxing'],
+    featured: false,
+    category: 'Third-person Puzzle Adventure',
+    title: 'Phase Swap Demo',
+    role: 'Solo Demo',
+    description: 'Phase Swap is a third-person puzzle adventure set in a quantum laboratory after a massive explosion destabilizes reality. Certain objects now exist in an unstable state, shifting between ghost-like intangibility and solid physical form. As a survivor altered by the blast, the player gains the ability to swap phases with these objects, using this power to solve spatial puzzles and navigate the facility. Walls and stable structures remain unchanged, forcing players to think strategically about what can and cannot be manipulated. Along the way, the protagonist encounters former colleagues driven insane by the accident, and must rely on phase control rather than violence to restrain enemies and escape the lab.',
+    cover: '/assets/media/094222_645a95308e2e416ca21d1aeb592e130e~mv2.png',
+    href: '/phase-swap-demo',
+    genre: 'Third-person Puzzle Adventure',
+    engine: 'Unreal Engine 5.7',
+    devTime: '14 Days Quick Demo Whiteboxing',
+    altCover: 'Phase Swap Demo 1',
   },
 ]
 

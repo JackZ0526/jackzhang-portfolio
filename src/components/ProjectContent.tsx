@@ -8,9 +8,11 @@ export function ProjectContent({ children }: { children: ReactNode }) {
 export function ProjectSection({ id, title, children, headingTag = 'h2' }: { id?: string; title?: string; children: ReactNode; headingTag?: 'h2' | 'h6' }) {
   return (
     <section id={id} className="project-section">
-      {title && headingTag === 'h2' && <h2 className="project-section__h2">{title}</h2>}
-      {title && headingTag === 'h6' && <h6 className="project-section__h6">{title}</h6>}
-      {children}
+      <div className="project-section__heading">
+        {title && headingTag === 'h2' && <h2 className="project-section__h2">{title}</h2>}
+        {title && headingTag === 'h6' && <h6 className="project-section__h6">{title}</h6>}
+      </div>
+      <div className="project-section__body">{children}</div>
     </section>
   )
 }
@@ -35,11 +37,11 @@ export function Caption({ children }: { children: ReactNode }) {
 }
 
 export function Img({ src, alt }: { src: string; alt: string }) {
-  return <img src={src} alt={alt} className="project-section__img" />
+  return <img src={src} alt={alt} className="project-section__img" loading="lazy" decoding="async" />
 }
 
 export function Gif({ src, alt }: { src: string; alt: string }) {
-  return <img src={src} alt={alt} className="project-section__gif" />
+  return <img src={src} alt={alt} className="project-section__gif" loading="lazy" decoding="async" />
 }
 
 export function List({ items }: { items: ReactNode[] }) {
