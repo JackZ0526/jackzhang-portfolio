@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" fill="none">
+  <title>Jack Zhang</title>
+  <rect x=".5" y=".5" width="31" height="31" rx="6" fill="#0b0d10" stroke="#505f70"/>
+  <path d="M6 9h8v10a4 4 0 0 1-8 0" stroke="#f1f3f5" stroke-width="2.6" stroke-linejoin="round"/>
+  <path d="M18 9h8l-8 14h8" stroke="#9bdcff" stroke-width="2.6" stroke-linejoin="round"/>
+</svg>
