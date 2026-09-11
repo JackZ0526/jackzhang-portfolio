@@ -10,8 +10,8 @@ export default function ProjectShowcase({ projects }: { projects: Project[] }) {
   if (!projects.length) return null
   function navigate(event: KeyboardEvent, index: number) {
     let next = index
-    if (event.key === 'ArrowRight') next = (index + 1) % projects.length
-    else if (event.key === 'ArrowLeft') next = (index - 1 + projects.length) % projects.length
+    if (event.key === 'ArrowDown' || event.key === 'ArrowRight') next = (index + 1) % projects.length
+    else if (event.key === 'ArrowUp' || event.key === 'ArrowLeft') next = (index - 1 + projects.length) % projects.length
     else if (event.key === 'Home') next = 0
     else if (event.key === 'End') next = projects.length - 1
     else return
@@ -21,10 +21,11 @@ export default function ProjectShowcase({ projects }: { projects: Project[] }) {
   }
   return (
     <div className="showcase">
-      <div className="showcase__tabs" role="tablist" aria-label="Selected projects">
+      <div className="showcase__tabs" role="tablist" aria-label="Selected projects" aria-orientation="vertical">
         {projects.map((p, index) => <button key={p.slug} type="button" role="tab" id={`tab-${p.slug}`}
           aria-selected={active === index} aria-controls={`panel-${p.slug}`} tabIndex={active === index ? 0 : -1}
           ref={element => { tabs.current[index] = element }} onClick={() => setActive(index)} onKeyDown={event => navigate(event, index)}>
+          <span className="showcase__number" aria-hidden="true">{String(index + 1).padStart(2, '0')}</span>
           <span>{p.titleLines?.join(' ') ?? p.title}</span>
         </button>)}
       </div>
@@ -35,7 +36,7 @@ export default function ProjectShowcase({ projects }: { projects: Project[] }) {
           <img src={p.cover} alt={p.altCover} loading="lazy" />
         </Link>
         <div className="showcase__story">
-          <div className="showcase__meta"><span>{p.category}</span><span>{p.engine}</span><span>{p.devTime}</span></div>
+          <dl className="showcase__meta"><div><dt>TYPE</dt><dd>{p.category}</dd></div><div><dt>ENGINE</dt><dd>{p.engine}</dd></div><div><dt>DURATION</dt><dd>{p.devTime}</dd></div></dl>
           <h3>{p.titleLines?.join(' ') ?? p.title}</h3>
           <p className="showcase__role">{p.role}</p>
           <p className="showcase__description">{renderDescription(p.description, p.boldPhrases)}</p>

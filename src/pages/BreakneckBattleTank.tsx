@@ -1,24 +1,8 @@
 import ProjectLayout from '../components/ProjectLayout'
-import ProjectCarousel from '../components/ProjectCarousel'
 import { ProjectContent, ProjectSection, Caption, P, Img, Gif, List } from '../components/ProjectContent'
 import Sidenav from '../components/Sidenav'
 import { useDocumentTitle } from '../hooks/useDocumentTitle'
 import './BreakneckBattleTank.css'
-
-// Top pro-gallery slides, in the exact order the live site renders them
-// (10 slides, 1317x741, first slide anchored at x=65).
-const HERO_SLIDES = [
-  { src: '/assets/media/094222_f6465ff83bda4edca2c7010b06f595af~mv2.png', alt: 'Breakneck Battle Tank 1' },
-  { src: '/assets/media/094222_4c145cd4c9b94c32891a376dedb43e99~mv2.png', alt: 'Breakneck Battle Tank 2' },
-  { src: '/assets/media/094222_14275ca54126427eaaf6edc160ea85f5~mv2.png', alt: 'Breakneck Battle Tank 3' },
-  { src: '/assets/media/094222_0044994e54f14dac89510b82f3c81f49~mv2.png', alt: 'Breakneck Battle Tank 4' },
-  { src: '/assets/media/094222_1e2cc9b240d0466f93ebfc1d61326a2b~mv2.png', alt: 'Breakneck Battle Tank 5' },
-  { src: '/assets/media/094222_5c8f168dbbe049fc84721c5380d92796~mv2.png', alt: 'Breakneck Battle Tank 6' },
-  { src: '/assets/media/094222_0a2ef9fab4d742af815e7f8d0b204e70~mv2.png', alt: 'Breakneck Battle Tank 7' },
-  { src: '/assets/media/094222_86185fe326974a02853f9c5b46d9c4cd~mv2.png', alt: 'Breakneck Battle Tank 8' },
-  { src: '/assets/media/094222_cedd86200fbd46309771d4acd801fd44~mv2.png', alt: 'Breakneck Battle Tank 9' },
-  { src: '/assets/media/094222_4e8a5aa584ee4d8c9edb44d006ecb580~mv2.png', alt: 'Breakneck Battle Tank 10' },
-]
 
 // Section jump tabs rendered as a fixed right-anchored overlay.
 const TABS = [
@@ -56,11 +40,8 @@ export default function BreakneckBattleTank() {
         italicTitle: true,
         pageClass: 'bbt-page',
       }}
-      nav={{ prevHref: '/harvest-onslaught', nextHref: '/' }}
+      nav={{ prevHref: '/harvest-onslaught', nextHref: '/taleofnexus-thetrueguardian' }}
     >
-      {/* Top pro gallery — sits between the meta block and the Level Design section */}
-      <ProjectCarousel slides={HERO_SLIDES} offset={65} ariaLabel="Breakneck Battle Tank gallery" />
-
       <ProjectContent>
         <Sidenav tabs={TABS} />
         <ProjectSection id="level-design" title="Level Design">

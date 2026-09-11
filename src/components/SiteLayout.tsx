@@ -2,6 +2,7 @@ import { Link, Outlet, useLocation } from 'react-router-dom'
 import { useEffect } from 'react'
 import Header from './Header'
 import Footer from './Footer'
+import BackToTop from './BackToTop'
 import { ArrowUpLeft } from 'lucide-react'
 import { projects } from '../data/projects'
 
@@ -35,6 +36,7 @@ export default function SiteLayout() {
         <Outlet />
       </main>
       {!hideChrome && <Footer />}
+      {!hideChrome && <BackToTop />}
     </div>
   )
 }

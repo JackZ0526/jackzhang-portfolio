@@ -1,23 +1,8 @@
 import ProjectLayout from '../components/ProjectLayout'
-import ProjectCarousel from '../components/ProjectCarousel'
 import { ProjectContent, ProjectSection, Caption, P, Img } from '../components/ProjectContent'
 import Sidenav from '../components/Sidenav'
 import { useDocumentTitle } from '../hooks/useDocumentTitle'
 import './TaleOfNexus.css'
-
-// Top pro-gallery slides, in the exact order the live site renders them
-// (9 slides, 1317x741, first slide anchored at x=65).
-const HERO_SLIDES = [
-  { src: '/assets/media/094222_8dc317ca95354ff3810816ba1aa41db2~mv2.png', alt: 'Tale of Nexus 1' },
-  { src: '/assets/media/094222_a0b419dce6544da0bf56537c18d2e2da~mv2.png', alt: 'Tale of Nexus 2' },
-  { src: '/assets/media/094222_3220fea382cb444da10f087fc66ccc6d~mv2.png', alt: 'Tale of Nexus 3' },
-  { src: '/assets/media/094222_3105ca0bf8b24b518c334b9edfd52082~mv2.png', alt: 'Tale of Nexus 4' },
-  { src: '/assets/media/094222_c6ecf4191957447697260b38c4bc8bdb~mv2.png', alt: 'Tale of Nexus 5' },
-  { src: '/assets/media/094222_a94b63d37c724603b4d46beeb33d1f6f~mv2.png', alt: 'Tale of Nexus 6' },
-  { src: '/assets/media/094222_840226b244a142c1a644ecdf72e43e3e~mv2.png', alt: 'Tale of Nexus 7' },
-  { src: '/assets/media/094222_71436a45d8ff4565a6285e852b5ab9b8~mv2.png', alt: 'Tale of Nexus 8' },
-  { src: '/assets/media/094222_4ddfacf3b0484f8b821931e614059c06~mv2.png', alt: 'Tale of Nexus 9' },
-]
 
 // Section jump tabs rendered as a fixed right-anchored overlay.
 const TABS = [
@@ -55,9 +40,8 @@ export default function TaleOfNexus() {
         italicTitle: true,
         pageClass: 'ton-page',
       }}
-      nav={{ prevHref: '/breakneck-battle-tank', nextHref: '/' }}
+      nav={{ prevHref: '/breakneck-battle-tank', nextHref: '/phase-swap-demo' }}
     >
-      <ProjectCarousel slides={HERO_SLIDES} offset={65} ariaLabel="Tale of Nexus gallery" />
 
       <ProjectContent>
         <Sidenav tabs={TABS} />

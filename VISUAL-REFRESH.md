@@ -38,3 +38,13 @@ Project cards and the homepage showcase have no outer panel backgrounds or frame
 Case-study quick navigation stays at the top while scrolling. Desktop chapter headings stick within their own sections below this navigation; mobile headings remain in normal flow. Image captions are centered above their original associated images or image groups, with their sequence preserved.
 
 The nonfunctional contact form has been replaced with a compact terminal-style email panel showing `jackzhang0526@gmail.com`. The copy control writes only the email address, briefly confirms success with a check mark, and provides a manual-copy message on failure. LinkedIn remains in the footer. All other original content and media, project filtering, showcase switching, and the custom appearance menu remain available.
+
+## Developer-lab visual pass
+
+Navigation uses monospace labels and subtle path markers. The homepage showcase has a vertical numbered project directory, image-led detail panel, and structured type/engine/duration metadata. Its tabs support Up/Down, Left/Right, Home, and End. The project archive uses numbered horizontal entries that stack on phones. Case-study chapter titles and navigation use monospace typography with restrained numbering, while body text stays in the reading font. About uses label and content columns that stack on phones. Buttons and media share smaller corner radii; theme colors, sticky navigation, original media ordering, and the 3D hero remain intact.
+
+## Final navigation and cover updates
+
+The repeated galleries at the top of all four case studies have been removed. Their original media files remain available, and all article sections retain their original text/image sequence. The shared project pager displays destination titles and cycles through the four projects in index order. A small fixed back-to-top link appears after scrolling, hides at the top, and respects reduced-motion preferences.
+
+All four project covers now use imagegen artwork based on the original project screenshots and descriptions, delivered as 1600 x 900 WebP files in `public/assets/covers`. Generation records are in `docs/cover-generation.json` and `docs/harvest-cover-generation.json`. Phase Swap retains the first generated architectural cover; subsequent character/story variants were previews only and were not applied. The approved Harvest artwork also appears in the existing 3D hero. Original screenshot assets are retained.

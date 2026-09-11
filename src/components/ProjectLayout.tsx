@@ -1,9 +1,8 @@
 import type { ReactNode } from 'react'
-import { Link } from 'react-router-dom'
-import { ArrowLeft, ArrowRight } from 'lucide-react'
+import ProjectPager, { type ProjectNav } from './ProjectPager'
 import './ProjectLayout.css'
 
-export type ProjectNav = { prevHref: string; nextHref: string; prevLabel?: string; nextLabel?: string }
+export type { ProjectNav } from './ProjectPager'
 
 export type ProjectMeta = {
   title: string
@@ -100,16 +99,7 @@ export default function ProjectLayout({ meta, nav, tabs, children }: {
 
       {children}
 
-      <nav className="project-pager" aria-label="Previous / Next">
-        <Link to={nav.prevHref} className="project-pager__btn">
-          <span className="project-pager__circle"><ArrowLeft size={18} color="#281A39" /></span>
-          <span className="project-pager__label">{nav.prevLabel || 'PREVIOUS GAME'}</span>
-        </Link>
-        <Link to={nav.nextHref} className="project-pager__btn project-pager__btn--right">
-          <span className="project-pager__label">{nav.nextLabel || 'NEXT GAME'}</span>
-          <span className="project-pager__circle"><ArrowRight size={18} color="#281A39" /></span>
-        </Link>
-      </nav>
+      <ProjectPager {...nav} />
     </div>
   )
 }

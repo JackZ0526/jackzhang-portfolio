@@ -1,16 +1,6 @@
 import ProjectLayout from '../components/ProjectLayout'
-import ProjectCarousel from '../components/ProjectCarousel'
 import { ProjectContent, ProjectSection, H3, P, Img, List } from '../components/ProjectContent'
 import { useDocumentTitle } from '../hooks/useDocumentTitle'
-
-// Top pro-gallery slides, in the exact order the live site renders them
-// (4 slides, 1317x741, first slide anchored at x=65).
-const HERO_SLIDES = [
-  { src: '/assets/media/094222_645a95308e2e416ca21d1aeb592e130e~mv2.png', alt: 'Phase Swap Demo 1' },
-  { src: '/assets/media/094222_7157760348f84ad7bd2a5d4a76a077cc~mv2.png', alt: 'Phase Swap Demo 2' },
-  { src: '/assets/media/094222_db77e146d0e247dc99468c8c5a58f3dd~mv2.png', alt: 'Phase Swap Demo 3' },
-  { src: '/assets/media/094222_3c347b3dd9a84482812cc6114dd066d5~mv2.png', alt: 'Phase Swap Demo 4' },
-]
 
 export default function PhaseSwapDemo() {
   useDocumentTitle('Phase Swap Demo')
@@ -46,9 +36,8 @@ export default function PhaseSwapDemo() {
         italicTitle: true,
         pageClass: 'ps-page',
       }}
-      nav={{ prevHref: '/', nextHref: '/harvest-onslaught' }}
+      nav={{ prevHref: '/taleofnexus-thetrueguardian', nextHref: '/harvest-onslaught' }}
     >
-      <ProjectCarousel slides={HERO_SLIDES} offset={65} ariaLabel="Phase Swap Demo gallery" />
 
       <ProjectContent>
         <ProjectSection title="Design Approach">

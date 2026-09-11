@@ -1,20 +1,8 @@
 import { ProjectContent, ProjectSection, Caption, P, Img, Gif } from '../components/ProjectContent'
-import ProjectCarousel from '../components/ProjectCarousel'
 import { useDocumentTitle } from '../hooks/useDocumentTitle'
-import { ArrowLeft, ArrowRight } from 'lucide-react'
-import { Link } from 'react-router-dom'
+import ProjectPager from '../components/ProjectPager'
 import Sidenav from '../components/Sidenav'
 import './HarvestOnslaught.css'
-
-// Top pro-gallery slides, in the exact order the live site renders them
-// (5 slides, 1317x741, first slide anchored at x=244 on this page).
-const HERO_SLIDES = [
-  { src: '/assets/media/094222_f4017384d3ee426eb0bfdc7f0c096de6f003.jpg', alt: 'Harvest Onslaught cover' },
-  { src: '/assets/media/094222_8595bb8fc33c43f18bc99159bf461355~mv2.jpg', alt: 'Harvest Onslaught gameplay 1' },
-  { src: '/assets/media/094222_2460df66b12540cda4cbc3959fc99f23~mv2.jpg', alt: 'Harvest Onslaught gameplay 2' },
-  { src: '/assets/media/094222_4f004af1de4c4f2da6550d25e7fea451~mv2.jpg', alt: 'Harvest Onslaught gameplay 3' },
-  { src: '/assets/media/094222_2889da4b052d48418e2e39ad00a51d80~mv2.jpg', alt: 'Harvest Onslaught gameplay 4' },
-]
 
 // Section jump tabs rendered as a fixed right-anchored overlay (matches the original Wix side nav).
 const TABS = [
@@ -68,8 +56,6 @@ export default function HarvestOnslaught() {
           </div>
         </div>
 
-        {/* Pro gallery strip — first slide anchored at x=244 on this page. */}
-        <ProjectCarousel slides={HERO_SLIDES} offset={191} ariaLabel="Harvest Onslaught gallery" />
       </header>
 
       {/* Floating right-anchored section nav — matches the original Wix side nav. */}
@@ -277,16 +263,7 @@ export default function HarvestOnslaught() {
         </ProjectSection>
       </ProjectContent>
 
-      <nav className="project-pager" aria-label="Previous / Next">
-        <Link to="/phase-swap-demo" className="project-pager__btn">
-          <span className="project-pager__circle"><ArrowLeft size={20} color="#281A39" /></span>
-          <span className="project-pager__label">PREVIOUS GAME</span>
-        </Link>
-        <Link to="/breakneck-battle-tank" className="project-pager__btn project-pager__btn--right">
-          <span className="project-pager__label">NEXT GAME</span>
-          <span className="project-pager__circle"><ArrowRight size={20} color="#281A39" /></span>
-        </Link>
-      </nav>
+      <ProjectPager prevHref="/phase-swap-demo" nextHref="/breakneck-battle-tank" />
     </div>
   )
 }
