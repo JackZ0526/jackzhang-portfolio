@@ -1,0 +1,46 @@
+/* Custom font-face declarations for jackzhang.ca */
+
+@font-face {
+  font-family: 'avenir-heavy';
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: url('/fonts/avenir-lt-w01_85-heavy1475544.woff2') format('woff2');
+}
+
+@font-face {
+  font-family: 'din-next-light';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url('/fonts/din-next-w01-light.woff2') format('woff2');
+}
+
+@font-face {
+  font-family: 'montserrat';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url('/fonts/mons-JTUSjIg1_i6t8kCHKm459WlhyyTh89Y.woff2') format('woff2');
+}
+@font-face {
+  font-family: 'montserrat';
+  font-style: italic;
+  font-weight: 400;
+  font-display: swap;
+  src: url('/fonts/mons-JTUQjIg1_i6t8kCHKm459WxRyS7m0dR9pA.woff2') format('woff2');
+}
+@font-face {
+  font-family: 'montserrat';
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: url('/fonts/mons-JTURjIg1_i6t8kCHKm45_dJE3gnD_vx3rCs.woff2') format('woff2');
+}
+@font-face {
+  font-family: 'montserrat';
+  font-style: italic;
+  font-weight: 700;
+  font-display: swap;
+  src: url('/fonts/mons-JTUPjIg1_i6t8kCHKm459WxZcgvz_PZwjimrqw.woff2') format('woff2');
+}

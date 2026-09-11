@@ -1,0 +1,134 @@
+/* Global CSS — 1:1 reconstruction of jackzhang.ca */
+
+:root {
+  --bg: #F6F6F6;
+  --txt: #281A39;
+  --txth: #5C5168;
+  --txts: #5C5168;
+  --muted: #8F8898;
+  --line: rgba(40, 26, 57, 0.18);
+  --accent: #2061B7;
+  /* Original Wix font stack:
+   * --font_0 = avenir-lt-w01_85-heavy1475544 (heavy cut, used for ALL display text)
+   * --font_1 = din-next-w01-light (body / nav text)
+   * --font_2/3/4/5/6 = avenir-heavy (display variants)
+   * --font_7/8/9 = montserrat (accent / labels)
+   * --font_10 = din-next-w01-light (small labels)
+   * Note: original applies synthetic italic to avenir-heavy for titles (font-style:italic).
+   */
+  --font-display-italic: 'avenir-heavy', 'Avenir Next', 'Helvetica Neue', Arial, sans-serif;
+  --font-display: 'avenir-heavy', 'Avenir Next', 'Helvetica Neue', Arial, sans-serif;
+  --font-heading: 'avenir-heavy', 'Avenir Next', 'Helvetica Neue', Arial, sans-serif;
+  /* Live site renders body copy (font_8/font_9) in Montserrat; DIN Next Light is
+   * declared by Wix but effectively unused on the audited pages (measured 1280x800). */
+  --font-body: 'montserrat', 'Helvetica Neue', Arial, sans-serif;
+  --font-accent: 'montserrat', 'Helvetica Neue', Arial, sans-serif;
+}
+
+* { box-sizing: border-box; }
+html, body { margin: 0; padding: 0; background: var(--bg); color: var(--txt); }
+body {
+  font-family: var(--font-body);
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  overflow-x: hidden;
+}
+
+/* Links */
+a { color: inherit; text-decoration: none; }
+a:hover { text-decoration: none; }
+
+/* Images */
+img { max-width: 100%; display: block; }
+
+/* Page container */
+.page { min-height: 100vh; display: flex; flex-direction: column; }
+
+/* Section dividers */
+.divider {
+  border: 0;
+  border-top: 1px solid var(--line);
+  margin: 0;
+}
+
+/* Containers — original Wix --site-width:980px is the central content column.
+ * Most pages widen beyond 980px via their own page-level max-width (1200px),
+ * but the .container / .container--narrow utility classes should match the
+ * 980px column for the about page and other narrow layouts.
+ */
+.container {
+  max-width: 980px;
+  margin: 0 auto;
+  padding: 0 40px;
+  width: 100%;
+}
+
+.container--narrow {
+  max-width: 980px;
+  margin: 0 auto;
+  padding: 0 40px;
+  width: 100%;
+}
+
+@media (max-width: 768px) {
+  .container, .container--narrow { padding: 0 24px; }
+}
+
+/* Section spacing */
+.section { padding: 80px 0; }
+@media (max-width: 768px) {
+  .section { padding: 48px 0; }
+}
+
+/* Headings — original Wix font classes:
+ * font_0 = italic 135px avenir-heavy (JACK ZHANG)
+ * font_2 = italic 70px avenir-heavy (project titles)
+ * font_3 = italic 50px avenir-heavy (MY PORTFOLIO)
+ * font_5 = 20px avenir-heavy bold (role)
+ * font_6 = 20px avenir-heavy (intro paragraph)
+ * font_7 = 15px montserrat bold (description)
+ * font_8 = 16px montserrat (category)
+ */
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-display);
+  font-weight: 400;
+  margin: 0;
+  letter-spacing: 0;
+  color: var(--txt);
+}
+
+/* Paragraph margins are now per-element to avoid specificity conflicts. */
+p { margin: 0; }
+
+button {
+  font-family: inherit;
+  font-size: 14px;
+  border: 0;
+  background: transparent;
+  cursor: pointer;
+  color: inherit;
+}
+
+/* Focus outlines */
+:focus-visible {
+  outline: 2px solid var(--txt);
+  outline-offset: 2px;
+}
+
+/* Skip link for accessibility */
+.skip-link {
+  position: absolute;
+  left: -9999px;
+  top: 0;
+  z-index: 9999;
+  background: var(--txt);
+  color: var(--bg);
+  padding: 8px 16px;
+  font-family: var(--font-body);
+}
+.skip-link:focus {
+  left: 0;
+}

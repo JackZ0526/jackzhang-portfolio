@@ -1,0 +1,394 @@
+/* ProjectLayout — 1:1 reconstruction of jackzhang.ca project pages
+ * Original site uses --site-width:980px.
+ * Italic project titles are font_2 (avenir-heavy italic bold 70px).
+ * Hero meta block uses 2-col grid with a vertical divider.
+ */
+
+/* Measured on the live site at 1280x800: title/meta/pager sit at x=53 (same as the
+ * header logo), the section column is a centred 980px (x=150..1130), and section
+ * headings are centred boxes inside it. */
+.project-page {
+  padding: 0 0 64px;
+  max-width: none;
+  margin: 0;
+}
+
+/* Hero — full width title across the top */
+.project-hero {
+  padding: 31px 0 16px;
+}
+.project-hero__inner {
+  display: grid;
+  align-items: center;
+}
+.project-hero--split .project-hero__inner {
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1.3fr);
+  gap: 24px;
+}
+.project-hero--split { overflow: hidden; }
+.project-hero--center .project-hero__inner {
+  display: block;
+}
+
+/* Title — original: italic bold avenir-heavy, ~70px (font_2) */
+.project-hero__title {
+  font-family: var(--font-display);
+  font-size: clamp(40px, 6vw, 88px);
+  line-height: 1.0;
+  color: var(--txt);
+  margin: 16px 0 8px;
+  letter-spacing: 0.01em;
+  font-weight: 400;
+  text-transform: uppercase;
+  font-style: italic;
+}
+.project-hero__title-line {
+  display: block;
+}
+.project-hero__title.project-hero__title--italic,
+h1.project-hero__title--italic {
+  font-family: var(--font-display);
+  font-style: italic;
+  font-weight: 700;
+  /* font_2 (italic 70px avenir-heavy) per orig DOM for BBT, Tale, Phase Swap */
+  font-size: 70px;
+  line-height: 1.2em;
+  text-transform: none;
+  margin: 0 0 8px;
+  text-align: left;
+  white-space: normal;
+  overflow: visible;
+}
+.project-hero--center .project-hero__title { text-align: left; padding-left: 0; }
+
+/* Allow full-width title section for project pages — original Wix puts the
+   title at the very left edge of the page (no 980px constraint). */
+.project-hero { padding-left: 53px; padding-right: 40px; }
+.project-meta { padding-left: 53px; padding-right: 40px; }
+.project-pager { padding-left: 53px; padding-right: 40px; }
+.project-hero { max-width: 100%; margin-left: 0; margin-right: 0; }
+
+.project-hero__media {
+  overflow: hidden;
+  border-radius: 0;
+  margin: 16px 0 8px;
+}
+.project-hero__media img {
+  width: 100%;
+  height: auto;
+  display: block;
+  max-height: 540px;
+  object-fit: cover;
+}
+.project-hero__media-label {
+  text-align: center;
+  font-size: 14px;
+  color: var(--txth);
+  font-style: italic;
+  margin: 8px 0 0;
+}
+
+/* Tabs */
+.project-tabs {
+  padding: 8px 0 16px;
+  border-bottom: 1px solid var(--line);
+  margin-bottom: 8px;
+}
+.project-tabs__list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 24px;
+  justify-content: center;
+}
+.project-tabs__tab {
+  font-family: var(--font-accent);
+  font-size: 14px;
+  color: var(--txt);
+  letter-spacing: 0.02em;
+  text-transform: none;
+  padding: 4px 0;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+}
+.project-tabs__tab::before {
+  content: '';
+  display: inline-block;
+  width: 12px;
+  height: 12px;
+  background: var(--bg);
+  border: 1px solid var(--line);
+  border-radius: 50%;
+}
+.project-tabs__tab:hover { color: var(--txt); }
+
+/* Meta block — original Wix uses 2-col grid with wider right column.
+   The right column has Development Time / GENRE / Engine / DOWNLOAD.
+   Original right column is left-aligned (not right-aligned). */
+/* The live-site gallery sits at y=728 on Tale/Phase Swap and y=812 on Breakneck
+ * (its meta block is 84px taller), so the meta padding is tuned per page. */
+/* Live site meta block: labels/values x=69 (right column x=787), first label
+ * y=269, label 15px/19px weight 700, value 15px/19.5px, label->value 8px. */
+.project-meta {
+  padding: 66px 40px 22px 69px;
+  display: grid;
+  grid-template-columns: 718px 1fr;
+  gap: 0;
+  border-top: 1px solid var(--line);
+  border-bottom: 1px solid var(--line);
+}
+.project-meta__col {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+.project-meta__col--right {
+  padding-left: 0;
+  border-left: 1px solid var(--line);
+  align-items: flex-start;
+}
+.project-meta__label {
+  font-family: var(--font-accent);
+  font-size: 15px;
+  line-height: 19px;
+  color: var(--txt);
+  letter-spacing: 0.04em;
+  margin: 27px 0 0;
+  text-transform: none;
+  font-weight: 700;
+}
+.project-meta__label:first-child { margin-top: 0; }
+.project-meta__label--plain {
+  font-weight: 700;
+}
+.project-meta__value {
+  font-family: var(--font-body);
+  font-size: 15px;
+  color: var(--txt);
+  /* Live site meta values are 15px/24px. */
+  line-height: 24px;
+  margin: 0;
+  max-width: 420px;
+}
+.project-meta__value--right { text-align: right; }
+.project-meta__value strong { font-weight: 700; }
+
+/* Download button — matches the original (filled teal pill) */
+.project-meta__download {
+  display: inline-flex;
+  align-items: center;
+  align-self: flex-start;
+  margin-top: 18px;
+  padding: 8px 22px;
+  border: 0;
+  border-radius: 0;
+  background: #1F3F3F;
+  color: #fff;
+  font-family: var(--font-accent);
+  font-size: 14px;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+.project-meta__download:hover { opacity: 0.85; }
+
+/* Content — centred 980px column (x=150..1130 at 1280). */
+.project-content {
+  padding: 40px 0 0;
+  max-width: 980px;
+  margin: 0 auto;
+}
+/* Live site: the next section heading sits ~45px below the previous section body,
+ * and the pager ~35px below the last image (measured on Tale/BBT/PS/Harvest). */
+.project-section {
+  margin-bottom: 0;
+  border-bottom: 1px solid var(--line);
+  padding-bottom: 67px;
+}
+.project-section:last-of-type { border-bottom: 0; padding-bottom: 35px; }
+.project-section__h2 {
+  font-family: var(--font-display);
+  font-style: italic;
+  font-weight: 700;
+  /* font_3 (italic 50px avenir-heavy) per orig DOM for project section headings */
+  font-size: 50px;
+  line-height: 1.2em;
+  color: var(--txt);
+  margin: 0 auto 24px;
+  letter-spacing: 0.01em;
+  text-align: center;
+  max-width: 980px;
+}
+/* Live site: the Phase Swap "Summary" block is an h6 at 20px (font_6), left aligned
+ * in the 980px column — not a 50px section title. */
+.project-section__h6 {
+  font-family: var(--font-display);
+  font-size: 20px;
+  line-height: 1.2em;
+  font-weight: 700;
+  font-style: normal;
+  color: var(--txt);
+  text-align: left;
+  margin: 0 0 8px;
+  max-width: 980px;
+}
+
+/* Live site sub-headings (e.g. Phase Swap "Stage 1 ...") are <p class="font_7">:
+ * montserrat 15px bold, sentence case. */
+.project-section__h3 {
+  font-family: var(--font-body);
+  font-size: 15px;
+  color: var(--txt);
+  margin: 24px 0 12px;
+  letter-spacing: 0;
+  text-transform: none;
+  font-weight: 700;
+  max-width: 1200px;
+}
+.project-section__p {
+  font-family: var(--font-body);
+  font-size: 16px;
+  line-height: 1.4;
+  color: var(--txt);
+  /* Live site: consecutive body paragraphs are flush (no inter-paragraph margin). */
+  margin: 0;
+  max-width: 980px;
+  text-align: left;
+}
+.project-section__p strong { font-weight: 700; }
+.project-section__caption {
+  font-family: var(--font-accent);
+  font-size: 15px;
+  color: var(--txt);
+  font-weight: 700;
+  text-align: center;
+  margin: 12px auto 12px;
+  letter-spacing: 0.02em;
+  max-width: 1200px;
+}
+/* The live site stacks section images with no vertical margin (captions/margins
+ * carry the spacing); measured pitch == image height on Tale/BBT/Harvest. */
+.project-section__img {
+  width: 100%;
+  max-width: 980px;
+  height: auto;
+  display: block;
+  margin: 0 auto;
+  border-radius: 0;
+}
+.project-section__gif {
+  width: 100%;
+  max-width: 980px;
+  height: auto;
+  display: block;
+  margin: 0 auto;
+}
+.project-section__list {
+  margin: 0;
+  padding: 0 0 0 40px;
+  color: var(--txt);
+  font-family: var(--font-body);
+  font-size: 16px;
+  line-height: 1.4;
+  max-width: 980px;
+  text-align: left;
+  list-style: disc;
+}
+.project-section__list strong { font-weight: 700; }
+.project-section__link {
+  color: var(--txt);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+.project-section__link:hover { opacity: 0.7; }
+
+/* The live site's meta→gallery gap differs per page (BBT 88px, Tale ~200px, PS ~250px),
+ * so the per-page offsets below are measured values, not a shared constant. */
+.bbt-page .project-meta { padding-top: 76px; padding-bottom: 76px; }
+.ton-page .project-meta { margin-bottom: -41px; }
+.ps-page .project-meta { margin-bottom: -71px; }
+.bbt-page .project-section:last-of-type { padding-bottom: 105px; }
+
+/* Breakneck/Tale "Level Design" screenshots are followed by a spacer paragraph on the
+ * live site (~31px), which the other sections do not have. Measured note: adding the
+ * equivalent 22px paragraph margins as well overshoots these two pages by +150, so the
+ * image margin alone is the closer fit. */
+.bbt-page #level-design .project-section__img,
+.bbt-page #level-design .project-section__gif,
+.ton-page #level-design .project-section__img,
+.ton-page #level-design .project-section__gif {
+  margin: 0 auto 31px;
+}
+
+/* Section-specific image widths measured on the live site: the Breakneck UI/UX
+   captures and the Tale/Harvest blueprint captures render 790px wide and centred
+   inside the 980px column, not full width. */
+#ui-ux .project-section__img,
+#ui-ux .project-section__gif,
+#blueprint .project-section__img,
+#blueprint .project-section__gif {
+  max-width: 790px;
+}
+
+/* Pager */
+.project-pager {
+  padding: 0 40px 0 53px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-top: 1px solid var(--line);
+  margin: 0;
+}
+.project-pager__btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 16px;
+  font-family: var(--font-accent);
+  font-style: italic;
+  font-size: 18px;
+  font-weight: 700;
+  color: var(--txt);
+  letter-spacing: 0.02em;
+  padding: 8px 0;
+  text-transform: none;
+}
+.project-pager__btn:hover { opacity: 0.7; }
+.project-pager__btn--right { flex-direction: row; }
+.project-pager__circle {
+  width: 56px;
+  height: 56px;
+  border: 1.5px solid var(--txt);
+  border-radius: 50%;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background: transparent;
+}
+.project-pager__btn--right .project-pager__circle { order: 2; }
+.project-pager__btn--right .project-pager__label { order: 1; }
+
+@media (max-width: 768px) {
+  .project-page { padding: 0 24px 24px; }
+  .project-hero { padding: 16px 0 12px; }
+  .project-hero--split .project-hero__inner { grid-template-columns: 1fr; gap: 16px; }
+  .project-hero__title--italic { font-size: 36px; }
+  .project-tabs { padding: 8px 0 16px; }
+  .project-tabs__list { gap: 12px; justify-content: flex-start; }
+  .project-meta {
+    grid-template-columns: 1fr;
+    padding: 20px 0;
+    gap: 24px;
+  }
+  .project-meta__col--right {
+    padding-left: 0;
+    border-left: 0;
+    border-top: 1px solid var(--line);
+    padding-top: 16px;
+    align-items: flex-start;
+  }
+  .project-content { padding: 24px 0 0; }
+  .project-pager { padding: 24px 0 0; flex-direction: column; gap: 12px; align-items: stretch; }
+}

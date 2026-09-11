@@ -1,0 +1,57 @@
+.under-dev {
+  position: relative;
+  overflow: hidden;
+  /* Match the original Wix under-development-page: marquee near the top of the
+   * main area (≈ 205px below the page top with header/footer chrome present).
+   * When chrome is hidden the page fills the viewport, so the marquee is
+   * positioned near the upper third of the screen. */
+  margin-top: 205px;
+  margin-bottom: 10px;
+  height: 90px;
+  width: 100%;
+  background: var(--bg);
+}
+
+.under-dev__track {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  width: max-content;
+  animation: marquee 40s linear infinite;
+  will-change: transform;
+}
+
+.under-dev__item {
+  font-family: Helvetica, Arial, sans-serif;
+  font-weight: 700;
+  font-size: 75px;
+  line-height: 1.4em;
+  color: #143D0D;
+  white-space: nowrap;
+  display: inline-flex;
+  align-items: center;
+  gap: 24px;
+}
+
+.under-dev__separator {
+  height: 60px;
+  width: 80px;
+  display: inline-block;
+  vertical-align: middle;
+  fill: #143D0D;
+}
+
+@keyframes marquee {
+  from { transform: translateX(0); }
+  to   { transform: translateX(-50%); }
+}
+
+@media (max-width: 768px) {
+  .under-dev { margin-top: 80px; height: 80px; }
+  .under-dev__item { font-size: 36px; line-height: 1.2; }
+  .under-dev__separator { height: calc(36px * 0.61); }
+}
+
+/* When the page chrome is hidden (no header/footer), the page itself fills
+ * the viewport, so the marquee moves a bit lower toward visual center. */
+.page:has(.under-dev) { min-height: 100vh; }

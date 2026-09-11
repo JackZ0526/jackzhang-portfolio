@@ -1,0 +1,70 @@
+/* Sidenav — right-anchored fixed section nav matching the original Wix
+ * harvest-onslaught side nav. Italic right-aligned text with a circle
+ * indicator dot after each tab.
+ */
+
+.sidenav {
+  position: fixed;
+  top: 50%;
+  transform: translateY(-50%);
+  right: 12px;
+  z-index: 40;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  pointer-events: auto;
+  max-width: 200px;
+}
+
+.sidenav ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  align-items: flex-end;
+}
+
+.sidenav__tab {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  font-family: var(--font-accent);
+  font-size: 14px;
+  color: var(--txt);
+  letter-spacing: 0.02em;
+  text-decoration: none;
+  white-space: nowrap;
+  flex-direction: row;
+}
+
+.sidenav__tab-text {
+  font-style: italic;
+  font-weight: 400;
+  font-family: var(--font-display);
+}
+
+.sidenav__tab-dot {
+  width: 14px;
+  height: 14px;
+  border: 1.5px solid var(--line);
+  border-radius: 50%;
+  background: transparent;
+  flex-shrink: 0;
+  transition: background 0.18s ease, border-color 0.18s ease;
+}
+
+.sidenav__tab.is-active .harvest-sidenav__tab-dot,
+.sidenav__tab.is-active .sidenav__tab-dot {
+  background: transparent;
+  border-color: var(--accent);
+}
+
+@media (max-width: 1024px) {
+  .sidenav { right: 8px; }
+}
+
+@media (max-width: 768px) {
+  .sidenav { display: none; }
+}

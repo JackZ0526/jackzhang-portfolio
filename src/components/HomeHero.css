@@ -1,0 +1,90 @@
+/* HomeHero — shared hero block at the top of the Home and Portfolio pages.
+ * Original Wix font stack:
+ *   font_6 = 20px avenir-heavy (LEVEL DESIGNER / intro)
+ *   font_0 = 135px italic avenir-heavy (JACK ZHANG)
+ *   font_3 = 50px italic avenir-heavy (MY PORTFOLIO)
+ */
+
+/* HERO */
+.home-hero {
+  padding: 28px 0 0;
+}
+
+.home-hero__inner {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 40px;
+}
+
+/* "LEVEL DESIGNER / GAME DESIGNER" — font_6 (avenir-heavy 20px bold) */
+.home-hero__role {
+  font-family: var(--font-display);
+  font-size: 20px;
+  font-weight: 700;
+  color: var(--txt);
+  letter-spacing: 0;
+  line-height: 1.7em;
+  margin: 0;
+}
+
+/* "JACK ZHANG" — font_0 (avenir-heavy italic bold 135px, line-height 0.9em) */
+.home-hero__title {
+  font-family: var(--font-display);
+  font-style: italic;
+  font-weight: 700;
+  font-size: 135px;
+  line-height: 1.2em;
+  color: var(--txt);
+  letter-spacing: 0;
+  margin: -11px 0 -6px;
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+
+/* Intro paragraph — font_6 (avenir-heavy 20px normal) */
+.home-hero p.home-hero__intro {
+  font-family: var(--font-display);
+  font-size: 20px;
+  font-weight: 400;
+  color: var(--txt);
+  letter-spacing: 0;
+  line-height: 1.5em;
+  max-width: 554px;
+  margin: 0 0 45px;
+}
+
+/* "MY PORTFOLIO" — font_3 (avenir-heavy italic bold 50px) per orig DOM */
+.home-section-title {
+  font-family: var(--font-display);
+  font-style: italic;
+  font-weight: 700;
+  font-size: 50px;
+  line-height: 1;
+  color: var(--txt);
+  letter-spacing: 0;
+  margin: 0 0 32px;
+  padding: 0 40px;
+  max-width: 1200px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* Horizontal divider line between "MY PORTFOLIO" and the first project block.
+ * The original Wix site renders this as a full-width 1px line at the same
+ * color as the section borders (rgba(40,26,57,0.18)). */
+.home-section-title-divider {
+  display: block;
+  border: 0;
+  border-top: 1px solid var(--line);
+  max-width: 1200px;
+  margin: 0 auto 32px;
+}
+
+@media (max-width: 768px) {
+  .home-hero { padding: 32px 0 8px; }
+  .home-hero__title { font-size: 56px; }
+  .home-hero__role { font-size: 14px; }
+  .home-hero__intro { font-size: 14px; margin-bottom: 16px; max-width: 100%; }
+  .home-section-title { font-size: 32px; padding: 16px 24px 12px; }
+}
+

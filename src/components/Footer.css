@@ -1,0 +1,78 @@
+.site-footer {
+  border-top: 1px solid var(--line);
+  padding: 0;
+  margin-top: 28px;
+}
+/* Live site at 1280x800: PORTFOLIO x=53, ABOUT & CONTACT x=564,
+ * LinkedIn icon x=983 + link text x=1033, © x=53, BACK TO TOP x=1126. */
+.site-footer__top {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 24px 40px 24px 53px;
+  display: grid;
+  grid-template-columns: 511px 419px 1fr;
+  gap: 0;
+  align-items: center;
+  border-bottom: 1px solid var(--line);
+}
+.site-footer__link {
+  font-family: var(--font-body);
+  font-size: 15px;
+  color: var(--txt);
+  letter-spacing: 0;
+  text-align: left;
+  display: inline-flex;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 11px;
+}
+.site-footer__link:hover { opacity: 0.7; }
+.site-footer__link--social {
+  justify-content: flex-start;
+  padding-right: 0;
+}
+.site-footer__li-icon {
+  width: 22px;
+  height: 22px;
+  display: inline-block;
+}
+.site-footer__link--social svg {
+  display: inline-block;
+  vertical-align: middle;
+}
+
+.site-footer__bottom {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 63px 50px 5px 53px;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+}
+.site-footer__copy {
+  font-family: var(--font-body);
+  font-size: 15px;
+  color: var(--txt);
+  margin: 0;
+  letter-spacing: 0.04em;
+}
+.site-footer__back {
+  font-family: var(--font-body);
+  font-size: 15px;
+  color: var(--txt);
+  letter-spacing: 0.04em;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+}
+.site-footer__back:hover { opacity: 0.7; }
+.site-footer__back svg {
+  display: inline-block;
+  vertical-align: middle;
+}
+
+@media (max-width: 768px) {
+  .site-footer__top { padding: 16px 24px; grid-template-columns: 1fr; gap: 8px; }
+  .site-footer__link--social { justify-content: center; padding-right: 0; }
+  .site-footer__bottom { padding: 16px 24px; flex-direction: column; gap: 8px; align-items: flex-start; }
+}

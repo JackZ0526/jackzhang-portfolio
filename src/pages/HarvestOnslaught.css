@@ -1,0 +1,234 @@
+/* Harvest Onslaught page — 1:1 reconstruction of jackzhang.ca/harvest-onslaught
+ * Original site uses --site-width:980px.
+ * Title: full-width section (original Wix), meta block at 980px.
+ * Side nav: right-anchored, italic right-aligned text with circle indicator dots.
+ */
+
+.harvest-page {
+  padding: 0 0 64px;
+  position: relative;
+  max-width: 100%;
+}
+
+/* Hero — full-width section, title at the very left edge */
+.harvest-hero {
+  padding: 16px 40px 0 53px;
+}
+
+.harvest-hero__inner {
+  max-width: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+.harvest-hero__title {
+  font-family: var(--font-display);
+  font-style: italic;
+  font-weight: 700;
+  font-size: 70px;
+  line-height: 1.2em;
+  color: var(--txt);
+  margin: 16px 0 8px;
+  letter-spacing: 0;
+  text-align: left;
+}
+
+.harvest-hero__divider {
+  border: 0;
+  border-top: 1px solid var(--line);
+  margin: 12px 0 87px;
+}
+
+/* Meta block: 2 columns (left wide text, right narrow text) */
+/* Live site: the meta labels start at x=69 while the H1 is at x=53. */
+.harvest-hero__meta {
+  display: grid;
+  grid-template-columns: minmax(0, 1.5fr) minmax(0, 1fr);
+  gap: 32px;
+  align-items: start;
+  position: relative;
+  padding-left: 16px;
+}
+
+.harvest-hero__meta-col {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.harvest-hero__meta-col--mid {
+  align-items: flex-start;
+  padding-left: 24px;
+  border-left: 1px solid var(--line);
+}
+
+.harvest-hero__label {
+  font-family: var(--font-accent);
+  font-size: 15px;
+  color: var(--txt);
+  letter-spacing: 0;
+  margin: 14px 0 0;
+  font-weight: 700;
+  text-transform: none;
+}
+
+.harvest-hero__label:first-child { margin-top: 0; }
+
+.harvest-hero__value {
+  font-family: var(--font-accent);
+  font-size: 15px;
+  color: var(--txt);
+  line-height: 24px;
+  margin: 0 0 12px;
+  max-width: 420px;
+  font-weight: 400;
+  letter-spacing: 0;
+}
+
+.harvest-hero__value strong { font-weight: 700; }
+
+.harvest-hero__download {
+  display: inline-flex;
+  align-self: flex-start;
+  align-items: center;
+  margin-top: 18px;
+  padding: 8px 22px;
+  border: 0;
+  border-radius: 0;
+  background: #1F3F3F;
+  color: #fff;
+  font-family: var(--font-accent);
+  font-size: 14px;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+.harvest-hero__download:hover { opacity: 0.85; }
+
+/* The live site wraps every Destructible paragraph in empty spacer paragraphs
+ * (~22px above and below), which is where the extra vertical rhythm comes from. */
+#destructive .project-section__p { margin: 22px 0; }
+
+/* The live site wraps every Level Design paragraph in empty spacer paragraphs
+ * (~19px above and below) — same mechanism as the Destructible strip below. */
+.harvest-page #level-design .project-section__p,
+.harvest-page #gaea .project-section__p,
+.harvest-page #blueprint .project-section__p { margin: 19px 0; }
+
+/* Harvest's Wix strips leave ~40px more between sections than the other pages. */
+.harvest-page .project-section { padding-bottom: 45px; }
+
+/* The live site leaves a large gap between the meta block and the gallery. */
+.harvest-page .project-carousel { margin-top: 109px; }
+
+/* Centered carousel — NOT full-bleed. Sits inside the content container. */
+.harvest-hero__carousel-wrap {
+  max-width: 100%;
+  margin: 32px 0 40px;
+  padding: 0;
+}
+
+.harvest-hero__carousel {
+  position: relative;
+  background: #000;
+  overflow: hidden;
+  max-width: 100%;
+  margin: 0;
+}
+
+.harvest-hero__carousel-img {
+  width: 100%;
+  height: 540px;
+  display: block;
+  object-fit: cover;
+}
+
+.harvest-hero__carousel-btn {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  border: 0;
+  background: rgba(0, 0, 0, 0.35);
+  color: #fff;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+}
+
+.harvest-hero__carousel-btn--prev { left: 28px; }
+.harvest-hero__carousel-btn--next { right: 28px; }
+.harvest-hero__carousel-btn:hover { background: rgba(0, 0, 0, 0.6); }
+
+/* Floating right-anchored section nav — handled by the shared <Sidenav /> component. */
+
+/* Dual image row for Destructive Environment section */
+.harvest-dual {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 24px;
+  margin: 16px auto;
+  max-width: 720px;
+}
+
+/* Section headings on Harvest Onslaught: centered italic, matching the original. */
+.harvest-page .project-section__h2 {
+  text-align: center;
+  font-style: italic;
+  font-weight: 700;
+}
+
+/* Live-site widths inside the 980px column: Level Design / Gaea screenshots are
+   980px wide (x=150), while Blueprint / Destructible / Niagara captures are 790px
+   wide and centred (x=245). */
+.harvest-page .project-section__img,
+.harvest-page .project-section__gif,
+.harvest-page .project-section__p,
+.harvest-page .project-section__list,
+.harvest-page .project-section__caption {
+  max-width: 980px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.harvest-page #blueprint .project-section__img,
+.harvest-page #blueprint .project-section__gif,
+.harvest-page #destructive .project-section__img,
+.harvest-page #destructive .project-section__gif,
+.harvest-page #niagara .project-section__img,
+.harvest-page #niagara .project-section__gif {
+  max-width: 790px;
+}
+
+/* The live-site gallery sits higher than the clone's default content offset. */
+.harvest-page .project-content { padding-top: 5px; }
+
+/* Meta block in harvest is part of the 1200px container */
+.harvest-page .harvest-hero__meta {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+@media (max-width: 1024px) {
+  .harvest-hero__meta { grid-template-columns: 1fr 1fr; gap: 24px; }
+  .harvest-sidenav { right: 8px; }
+}
+
+@media (max-width: 768px) {
+  .harvest-page { padding: 0 24px 24px; }
+  .harvest-hero { padding: 16px 0 0; }
+  .harvest-hero__title { font-size: 36px; }
+  .harvest-hero__meta { grid-template-columns: 1fr; gap: 16px; }
+  .harvest-hero__meta-col--mid {
+    padding-left: 0;
+    border-left: 0;
+    border-top: 1px solid var(--line);
+    padding-top: 16px;
+  }
+  .harvest-sidenav { display: none; }
+  .harvest-dual { grid-template-columns: 1fr; }
+}

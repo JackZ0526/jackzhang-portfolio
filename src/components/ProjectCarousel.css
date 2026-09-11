@@ -1,0 +1,60 @@
+/* Project gallery strip — geometry taken from the live site at 1280x800:
+ * every slide is 1317x741 with a 40px gap, the first slide is anchored at x=65
+ * (Harvest Onslaught: x=244) and the viewport clips the rest of the track. */
+.project-carousel {
+  position: relative;
+  /* The offset is injected inline per page; the container is clipped by the viewport. */
+  width: calc(100vw - var(--carousel-offset, 65px));
+  max-width: 1317px;
+  margin-left: var(--carousel-offset, 65px);
+  /* The slide keeps its 1317px width and is clipped by the viewport edge,
+     exactly like the Wix pro-gallery (the inline style sets width per offset). */
+  overflow: hidden;
+  background: #000;
+  margin-top: 32px;
+  margin-bottom: 40px;
+}
+
+.project-carousel__track {
+  display: flex;
+  gap: 40px;
+  transition: transform 0.35s ease;
+}
+
+.project-carousel__img {
+  flex: 0 0 1317px;
+  width: 1317px;
+  max-width: none;
+  height: auto;
+  aspect-ratio: 1317 / 741;
+  object-fit: cover;
+  display: block;
+}
+
+.project-carousel__btn {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  border: 0;
+  background: rgba(0, 0, 0, 0.35);
+  color: #fff;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+}
+.project-carousel__btn--prev { left: 28px; }
+.project-carousel__btn--next { right: 28px; }
+.project-carousel__btn:hover { background: rgba(0, 0, 0, 0.6); }
+
+@media (max-width: 768px) {
+  .project-carousel { margin: 24px 0 24px; width: 100%; max-width: 100%; margin-left: 0; }
+  .project-carousel__track { gap: 16px; }
+  .project-carousel__img { flex: 0 0 100%; width: 100%; }
+  .project-carousel__btn { width: 40px; height: 40px; }
+  .project-carousel__btn--prev { left: 12px; }
+  .project-carousel__btn--next { right: 12px; }
+}

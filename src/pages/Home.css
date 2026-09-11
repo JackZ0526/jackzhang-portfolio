@@ -1,0 +1,372 @@
+/* Home page — 1:1 reconstruction of jackzhang.ca home page
+ * Original site uses --site-width:980px with two columns inside each project block.
+ * "01" + rotated label on the left, large cover image on the right.
+ * The cover image (targetWidth:784, targetHeight:660) fills the right column.
+ */
+
+.home {
+  padding-bottom: 0;
+}
+
+/* HERO */
+/* Measured on the live site at 1280x800:
+ *   role h1      y=139 (header 63 + 76 padding);  JACK ZHANG y=162, 135px, box 162 tall
+ *   intro y=318  ->  20px/30px, 2 lines;  MY PORTFOLIO y=453
+ *   left edge x=53, same as the header logo */
+.home-hero {
+  padding: 76px 0 0;
+}
+
+.home-hero__inner {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 0 40px 0 53px;
+}
+
+/* "LEVEL DESIGNER / GAME DESIGNER" — font_6 (avenir-heavy 20px bold) */
+.home-hero__role {
+  font-family: var(--font-display);
+  font-size: 20px;
+  font-weight: 700;
+  color: var(--txt);
+  letter-spacing: 0;
+  line-height: 1.7em;
+  margin: 0;
+}
+
+/* "JACK ZHANG" — font_0 (avenir-heavy italic bold 135px, line-height 1.2em) */
+.home-hero__title {
+  font-family: var(--font-display);
+  font-style: italic;
+  font-weight: 700;
+  font-size: 135px;
+  line-height: 1.2em;
+  color: var(--txt);
+  letter-spacing: 0;
+  margin: -11px 0 -6px;
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+
+/* Intro paragraph — font_6 (avenir-heavy 20px normal) */
+.home-hero p.home-hero__intro {
+  font-family: var(--font-display);
+  font-size: 20px;
+  font-weight: 400;
+  color: var(--txt);
+  letter-spacing: 0;
+  line-height: 1.5em;
+  max-width: 554px;
+  margin: 0 0 45px;
+}
+
+/* "MY PORTFOLIO" — font_3 (avenir-heavy italic bold 50px) per orig DOM */
+.home-section-title {
+  font-family: var(--font-display);
+  font-style: italic;
+  font-weight: 700;
+  font-size: 50px;
+  line-height: 1.2em;
+  color: var(--txt);
+  letter-spacing: 0;
+  margin: 0 0 32px;
+  padding: 0 40px 0 52px;
+  max-width: 1280px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* Horizontal divider between "MY PORTFOLIO" and the first project block.
+ * The orig Wix site renders this as a full-width 1px line. */
+.home-section-title-divider {
+  display: block;
+  border: 0;
+  border-top: 1px solid var(--line);
+  max-width: none;
+  margin: 0 40px 32px 53px;
+}
+
+/* PROJECT BLOCK
+ * The original Wix layout puts the "01" + rotated label at the left page edge
+ * (same x as the section title) and then has the cover image start further
+ * to the right with a gap. We use a 2-col grid:
+ *   - left column (195px) holds the "01" + rotated label, both left-aligned
+ *   - right column (1fr) holds the cover image
+ * The cover image targetWidth is 1024px (orig Wix fills 1024x660).
+ * The .home-section-title-divider above provides the top border for the first
+ * project block; subsequent project blocks get a border-top via .home-project.
+ */
+.home-project {
+  padding: 98px 0 0;
+  border-top: 1px solid var(--line);
+  margin-top: 32px;
+}
+
+/* The first project sits directly under the MY PORTFOLIO divider — don't
+ * double up the border-top. We use a dedicated class instead of :first-of-type
+ * because :first-of-type would target the <section> in HomeHero, not us. */
+.home-project.home-project--first {
+  border-top: 0;
+  margin-top: 0;
+  padding-top: 19px;
+}
+
+.home-project:last-of-type {
+  padding-bottom: 0;
+}
+
+.home-project__inner {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 0 40px 0 53px;
+  display: grid;
+  /* "01" + rotated label sit at the left page edge (x=80), cover image starts
+   * at x=325 in the orig. That's 245px from the content's left edge. */
+  grid-template-columns: 203px 1fr;
+  gap: 0;
+  align-items: start;
+}
+
+/* Left column — "01" + rotated label, both anchored to the page's left edge */
+/* The left gutter spans the cover height (660px) so the rotated label can be
+ * centred on the cover, which is what the live site does. */
+.home-project__left {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 0;
+  padding-top: 8px;
+  height: 660px;
+  min-width: 0;
+  position: relative;
+}
+
+/* "01" — font_3 (avenir-heavy italic bold 50px) per orig DOM */
+.home-project__num {
+  font-family: var(--font-display);
+  font-size: 50px;
+  font-style: italic;
+  font-weight: 700;
+  color: var(--txt);
+  margin: 0;
+  line-height: 1;
+  text-align: left;
+  align-self: flex-start;
+  width: auto;
+  letter-spacing: 0;
+}
+
+/* Rotated category label — font_8 (montserrat 16px) per orig DOM */
+.home-project__category {
+  font-family: var(--font-accent);
+  font-size: 16px;
+  color: var(--txt);
+  letter-spacing: 0;
+  line-height: normal;
+  font-weight: 400;
+  writing-mode: vertical-rl;
+  transform: translateY(-50%) rotate(180deg);
+  text-align: left;
+  white-space: nowrap;
+  align-self: flex-start;
+  position: absolute;
+  top: calc(50% - 11px);
+  left: 24px;
+  margin: 0;
+  padding: 0;
+}
+
+/* Right column — cover image (orig Wix targetWidth:1024, targetHeight:660)
+ * The orig Wix cover image extends past the right edge of the container
+ * (it's 1024px wide but the container is only 1120px content area). The
+ * cover image is allowed to overflow horizontally. */
+.home-project__right {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+  max-width: 100%;
+  margin-left: 0;
+  min-width: 0;
+  overflow: visible;
+}
+
+.home-project__cover-wrap {
+  display: block;
+  overflow: hidden;
+  border-radius: 0;
+  /* The orig Wix cover image is 1024x660. We set a fixed width of 1024px so
+   * the image matches the orig even when the grid track is narrower. The
+   * cover-wrap will overflow the right column slightly on 1280px viewports. */
+  width: 1024px;
+  max-width: 1024px;
+  height: 660px;
+  margin-left: 0;
+  margin-top: 0;
+}
+
+.home-project__cover {
+  width: 100%;
+  height: 100%;
+  display: block;
+  object-fit: cover;
+  object-position: 50% 50%;
+}
+
+/* The live site indents the text column by 25px relative to the cover (x=281 vs 256). */
+.home-project__text {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+  padding: 50px 0 0 25px;
+  position: relative;
+}
+
+.home-project__title-row {
+  display: flex;
+  align-items: flex-start;
+  gap: 0;
+  margin-bottom: 0;
+  position: relative;
+}
+
+.home-project__title-row > div {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+}
+
+/* Project title — font_2 (avenir-heavy italic bold 50px) per orig DOM.
+ * The title sits below the cover image, aligned to the cover's left edge. */
+.home-project__title {
+  font-family: var(--font-display);
+  font-style: italic;
+  font-weight: 700;
+  font-size: 50px;
+  line-height: 1.1;
+  color: var(--txt);
+  margin: 0;
+  letter-spacing: 0;
+  display: block;
+}
+
+.home-project__title + .home-project__title { display: block; }
+
+.home-project__arrow {
+  display: inline-flex;
+  align-items: center;
+  margin-left: 12px;
+  position: absolute;
+  right: -8px;
+  top: 8px;
+}
+
+.home-project__arrow svg {
+  display: block;
+}
+
+/* "Level Designer / Game Designer" — font_5 (avenir-heavy 18px bold) per original */
+.home-project__role {
+  font-family: var(--font-display);
+  font-size: 20px;
+  color: var(--txt);
+  letter-spacing: 0;
+  margin: 20px 0 22px;
+  font-weight: 700;
+  line-height: 1;
+}
+
+/* Description — font_8 (montserrat 14px) per original.
+   The original Wix uses font_8 (normal weight 400) for body text,
+   with selected phrases bolded via font_7 (bold 700). We use <strong>
+   to bold specific phrases and keep the rest at weight 400. */
+.home-project__desc {
+  font-family: var(--font-accent);
+  font-size: 15px;
+  line-height: 24px;
+  color: var(--txt);
+  margin: 0 0 32px;
+  max-width: 758px;
+  font-weight: 400;
+  letter-spacing: 0.04em;
+}
+
+.home-project__desc strong { font-weight: 700; }
+
+/* "View Game" pill button */
+.home-project__view {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  align-self: flex-start;
+  padding: 0 22px;
+  height: 36px;
+  border: 1px solid var(--txt);
+  border-radius: 50px;
+  font-family: var(--font-body);
+  font-size: 14px;
+  font-weight: 400;
+  color: var(--txt);
+  background: transparent;
+  letter-spacing: 0;
+  transition: background 0.2s, color 0.2s;
+  min-width: 140px;
+}
+
+.home-project__view:hover {
+  background: var(--txt);
+  color: var(--bg);
+}
+
+.home-project__view svg { display: block; }
+
+.divider {
+  border: 0;
+  border-top: 1px solid var(--line);
+  margin: 0;
+}
+
+@media (max-width: 1024px) {
+  .home-hero__title { font-size: 90px; }
+  .home-section-title { font-size: 40px; }
+  .home-project__inner { grid-template-columns: 180px 1fr; padding: 0 40px; }
+  /* The 1024px cover is a desktop-only overflow (it ends exactly at the 1280 viewport edge). */
+  .home-project__cover-wrap { width: 100%; max-width: 1024px; height: auto; aspect-ratio: 1024 / 660; }
+  .home-project__right { margin-left: 0; }
+  .home-project__title { font-size: 40px; }
+  .home-project__num { font-size: 40px; }
+}
+
+@media (max-width: 768px) {
+  .home-hero { padding: 32px 0 8px; }
+  .home-hero__title { font-size: 56px; }
+  .home-hero__role { font-size: 14px; }
+  .home-hero__intro { font-size: 14px; margin-bottom: 16px; max-width: 100%; }
+  .home-section-title { font-size: 32px; padding: 16px 24px 12px; }
+
+  .home-project { padding: 24px 0 32px; }
+  .home-project__inner {
+    grid-template-columns: 1fr;
+    gap: 16px;
+    padding: 0 24px;
+  }
+  .home-project__left {
+    flex-direction: row;
+    align-items: center;
+    gap: 16px;
+    padding-top: 0;
+    min-width: 0;
+  }
+  .home-project__num { font-size: 24px; text-align: left; width: auto; }
+  .home-project__category {
+    margin: 0;
+    font-size: 12px;
+    letter-spacing: 0;
+    writing-mode: horizontal-tb;
+    transform: none;
+  }
+  .home-project__title { font-size: 22px; }
+  .home-project__arrow svg { width: 22px; height: 22px; }
+  .home-project__desc { font-size: 14px; }
+  .home-project__view { padding: 6px 16px; font-size: 13px; }
+}

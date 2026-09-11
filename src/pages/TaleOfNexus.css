@@ -1,0 +1,34 @@
+/* Tale of Nexus — top hero image carousel after meta block */
+
+.ton-hero-carousel {
+  position: relative;
+  max-width: 1280px;
+  margin: 0 auto 32px;
+  background: #000;
+  overflow: hidden;
+}
+.ton-hero-carousel__img {
+  width: 100%;
+  height: auto;
+  display: block;
+  max-height: 520px;
+  object-fit: cover;
+}
+.ton-hero-carousel__btn {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  border: 0;
+  background: rgba(0, 0, 0, 0.35);
+  color: #fff;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+}
+.ton-hero-carousel__btn--prev { left: 28px; }
+.ton-hero-carousel__btn--next { right: 28px; }
+.ton-hero-carousel__btn:hover { background: rgba(0, 0, 0, 0.6); }

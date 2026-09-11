@@ -1,0 +1,191 @@
+/* Measured on the live site at 1280x800: hero text x=53 (same as the header logo),
+ * section bodies x=88, body copy 16px/22.4px in a 891px column. */
+.about {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 0 40px 10px 53px;
+}
+
+.about__hero {
+  padding: 43px 0 70px;
+  text-align: left;
+}
+.about__name {
+  font-family: var(--font-display);
+  font-style: italic;
+  font-weight: 700;
+  /* font_2 (italic 70px avenir-heavy) per orig DOM */
+  font-size: 70px;
+  line-height: 1.2em;
+  color: var(--txt);
+  margin: 0 0 7px;
+  letter-spacing: 0.01em;
+}
+.about__role {
+  font-family: var(--font-display);
+  font-size: 20px;
+  font-weight: 700;
+  color: var(--txt);
+  margin: 0;
+  letter-spacing: 0;
+  line-height: 1.5;
+}
+
+/* Live site h2 = 20px/24px; the SKILLS heading sits 34px below the summary. */
+.about__h2 {
+  font-family: var(--font-display);
+  font-size: 20px;
+  line-height: 1.2em;
+  color: var(--txt);
+  margin: 16px 0 0;
+  letter-spacing: 0.06em;
+  font-weight: 700;
+}
+
+.about__summary {
+  padding: 0 0 0 35px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  max-width: 1200px;
+}
+.about__summary p {
+  font-family: var(--font-body);
+  font-size: 16px;
+  line-height: 1.4;
+  color: var(--txt);
+  margin: 0;
+  max-width: 891px;
+}
+
+.about__skills {
+  padding: 0 0 0 35px;
+  max-width: 1200px;
+}
+.about__skills .about__h2 { margin-top: 34px; }
+.about__skills-list {
+  font-family: var(--font-body);
+  font-size: 16px;
+  line-height: 1.6;
+  color: var(--txt);
+  margin: 18px 0 0;
+  letter-spacing: 0.02em;
+}
+
+.about__contact {
+  padding: 145px 0 32px;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  max-width: 1200px;
+}
+/* Live site: 50px avenir-heavy, centred block 955px wide at x=162. */
+.about__contact .about__h2 {
+  font-family: var(--font-display);
+  font-style: italic;
+  font-weight: 700;
+  font-size: 50px;
+  line-height: 1.2em;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  margin: 0 0 20px;
+  width: 100%;
+  max-width: 955px;
+  text-align: center;
+}
+/* Live site: 20px, centred 852px block (x=214). */
+.about__contact-tagline {
+  font-family: var(--font-body);
+  font-size: 20px;
+  letter-spacing: 0.02em;
+  color: var(--txt);
+  margin: 0 0 58px;
+  text-align: center;
+  width: 100%;
+  max-width: 852px;
+}
+
+/* Contact form */
+.contact-form {
+  width: 100%;
+  max-width: 830px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+.contact-form__row {
+  display: flex;
+  gap: 32px;
+}
+.contact-form__field {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  text-align: left;
+}
+.contact-form__field--full { flex: 1 1 100%; }
+.contact-form__label {
+  font-family: var(--font-body);
+  font-size: 13px;
+  color: var(--txth);
+  letter-spacing: 0.04em;
+}
+.contact-form__input {
+  font-family: var(--font-body);
+  font-size: 15px;
+  color: var(--txt);
+  background: transparent;
+  border: 0;
+  border-bottom: 1px solid var(--line);
+  border-radius: 0;
+  padding: 8px 0;
+  outline: none;
+  transition: border-color 0.2s;
+  resize: vertical;
+}
+.contact-form__input:focus {
+  border-color: var(--txt);
+}
+.contact-form__textarea {
+  min-height: 80px;
+  font-family: var(--font-body);
+  padding-top: 8px;
+}
+/* Submit button — orig Wix renders a full-width pill (830px form width) */
+.contact-form__submit {
+  align-self: stretch;
+  font-family: var(--font-body);
+  font-size: 14px;
+  color: var(--txt);
+  background: transparent;
+  border: 1px solid var(--txt);
+  border-radius: 999px;
+  padding: 12px 36px;
+  letter-spacing: 0.04em;
+  cursor: pointer;
+  transition: background 0.2s, color 0.2s;
+  margin-top: 16px;
+  width: 100%;
+  text-align: center;
+}
+.contact-form__submit:hover {
+  background: var(--txt);
+  color: var(--bg);
+}
+.contact-form__ok {
+  font-family: var(--font-body);
+  color: var(--txth);
+  margin: 0;
+  font-size: 14px;
+  text-align: center;
+}
+
+@media (max-width: 768px) {
+  .about__hero { padding: 32px 0 16px; }
+  .about__name { font-size: clamp(40px, 12vw, 64px); }
+  .about__summary, .about__skills, .about__contact { padding: 0 24px; }
+  .contact-form__row { flex-direction: column; gap: 16px; }
+  .about__contact .about__h2 { font-size: 24px; }
+}

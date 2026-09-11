@@ -1,0 +1,82 @@
+.site-header {
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  /* Original Wix sticky header: fully transparent on top, opaque (#F6F6F6) when scrolled. */
+  background: transparent;
+  border-bottom: 0;
+  transition: background 0.2s, border-color 0.2s;
+}
+.site-header.is-stuck {
+  background: var(--bg);
+  border-bottom: 1px solid var(--line);
+}
+
+/* Measured against the live site at 1280x800 (2026-09-08):
+ *   header strip      : 1280x63, transparent
+ *   J.Z. logo         : x=53, y=32, box 34x24  (20px avenir-heavy, line-height 1.2)
+ *   PORTFOLIO/ABOUT/CONTACT anchors: y=26, h=37, right edge x=1240, 16px side padding
+ * So the row spans x=53..1240 and its content is bottom-aligned, not centred. */
+.site-header__inner {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 0 40px 0 53px;
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  height: 63px;
+}
+
+.site-header__logo {
+  font-family: var(--font-display);
+  font-size: 20px;
+  font-weight: 700;
+  color: var(--txt);
+  letter-spacing: 0;
+  line-height: 1.2;
+  margin-bottom: 7px;
+}
+
+.site-header__nav ul {
+  display: flex;
+  align-items: flex-end;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  gap: 0;
+}
+
+.site-header__nav a {
+  font-family: var(--font-accent);
+  font-size: 16px;
+  font-weight: 400;
+  color: var(--txt);
+  letter-spacing: 0;
+  line-height: 24px;
+  display: inline-block;
+  padding: 6px 16px 7px;
+  position: relative;
+  text-decoration: none;
+}
+
+.site-header__nav a:hover {
+  color: var(--txt);
+  text-decoration: underline;
+  text-underline-offset: 4px;
+}
+
+.site-header__nav a.is-active {
+  color: var(--accent);
+  text-decoration: underline;
+  text-underline-offset: 4px;
+}
+
+@media (max-width: 768px) {
+  .site-header__inner {
+    padding: 0 24px;
+    height: 56px;
+  }
+  .site-header__nav ul { gap: 24px; }
+  .site-header__nav a { font-size: 12px; }
+  .site-header__logo { font-size: 14px; }
+}
