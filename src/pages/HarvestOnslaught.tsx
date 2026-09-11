@@ -263,7 +263,7 @@ export default function HarvestOnslaught() {
         </ProjectSection>
       </ProjectContent>
 
-      <ProjectPager prevHref="/phase-swap-demo" nextHref="/breakneck-battle-tank" />
+      <ProjectPager prevHref="/paris-tour" nextHref="/breakneck-battle-tank" />
     </div>
   )
 }

@@ -36,11 +36,11 @@ export default function ProjectShowcase({ projects }: { projects: Project[] }) {
           <img src={p.cover} alt={p.altCover} loading="lazy" />
         </Link>
         <div className="showcase__story">
-          <dl className="showcase__meta"><div><dt>TYPE</dt><dd>{p.category}</dd></div><div><dt>ENGINE</dt><dd>{p.engine}</dd></div><div><dt>DURATION</dt><dd>{p.devTime}</dd></div></dl>
+          <dl className="showcase__meta"><div><dt>TYPE</dt><dd>{p.category}</dd></div><div><dt>{p.kind === 'Web Apps' ? 'STACK' : 'ENGINE'}</dt><dd>{p.engine}</dd></div><div><dt>{p.status ? 'STATUS' : 'DURATION'}</dt><dd>{p.status ?? p.devTime}</dd></div></dl>
           <h3>{p.titleLines?.join(' ') ?? p.title}</h3>
           <p className="showcase__role">{p.role}</p>
           <p className="showcase__description">{renderDescription(p.description, p.boldPhrases)}</p>
-          <Link className="primary-link" to={'/' + p.slug}>View Game <ArrowUpRight size={17} /></Link>
+          <Link className="primary-link" to={'/' + p.slug}>{p.kind === 'Games' ? 'View Game' : 'View Project'} <ArrowUpRight size={17} /></Link>
         </div>
       </div>)}
       </div>

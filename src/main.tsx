@@ -10,6 +10,7 @@ import HarvestOnslaught from './pages/HarvestOnslaught'
 import BreakneckBattleTank from './pages/BreakneckBattleTank'
 import TaleOfNexus from './pages/TaleOfNexus'
 import PhaseSwapDemo from './pages/PhaseSwapDemo'
+import ParisTour from './pages/ParisTour'
 import UnderDevelopment from './pages/UnderDevelopment'
 import NotFound from './pages/NotFound'
 import SiteLayout from './components/SiteLayout'
@@ -27,6 +28,7 @@ createRoot(document.getElementById('root')!).render(
           <Route path="/breakneck-battle-tank" element={<BreakneckBattleTank />} />
           <Route path="/taleofnexus-thetrueguardian" element={<TaleOfNexus />} />
           <Route path="/phase-swap-demo" element={<PhaseSwapDemo />} />
+          <Route path="/paris-tour" element={<ParisTour />} />
           <Route path="/under-development-page" element={<UnderDevelopment />} />
           <Route path="*" element={<NotFound />} />
         </Route>

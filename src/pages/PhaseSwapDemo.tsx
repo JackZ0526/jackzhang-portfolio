@@ -36,7 +36,7 @@ export default function PhaseSwapDemo() {
         italicTitle: true,
         pageClass: 'ps-page',
       }}
-      nav={{ prevHref: '/taleofnexus-thetrueguardian', nextHref: '/harvest-onslaught' }}
+      nav={{ prevHref: '/taleofnexus-thetrueguardian', nextHref: '/paris-tour' }}
     >
 
       <ProjectContent>

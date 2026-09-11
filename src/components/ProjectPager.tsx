@@ -4,7 +4,7 @@ import { getProject } from '../data/projects'
 
 export type ProjectNav = { prevHref: string; nextHref: string; prevLabel?: string; nextLabel?: string }
 
-export default function ProjectPager({ prevHref, nextHref, prevLabel = 'PREVIOUS GAME', nextLabel = 'NEXT GAME' }: ProjectNav) {
+export default function ProjectPager({ prevHref, nextHref, prevLabel = 'PREVIOUS PROJECT', nextLabel = 'NEXT PROJECT' }: ProjectNav) {
   const title = (href: string) => {
     const project = getProject(href.replace(/^\//, ''))
     return project?.titleLines?.join(' ') ?? project?.title ?? 'Home'

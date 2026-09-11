@@ -1,0 +1,30 @@
+.paris-intro { padding-top:36px; padding-bottom:50px; }
+.paris-intro h1 { font:450 clamp(48px,6vw,80px)/1.1 var(--font-display); letter-spacing:-.06em; margin:18px 0 20px; }
+.paris-intro__lead { font-size:clamp(23px,3vw,34px); letter-spacing:-.035em; color:var(--txt); margin:0 0 32px; }
+.paris-intro__details { display:grid; grid-template-columns:minmax(0,1.8fr) minmax(0,1fr); gap:80px; }
+.paris-intro__details p { color:var(--txth); font-size:17px; line-height:1.85; margin:0; max-width:700px; }
+.paris-intro__actions { display:flex; align-items:center; flex-wrap:wrap; gap:26px; margin-top:28px; }
+.paris-intro__details .paris-intro__note { font:11px/1.8 var(--font-mono); color:var(--muted); margin-top:20px; }
+.paris-facts { display:grid; gap:22px; margin:0; border-left:1px solid var(--line); padding-left:34px; }
+.paris-facts dt { font:11px/1.6 var(--font-mono); color:var(--muted); margin-bottom:5px; }
+.paris-facts dd { margin:0; color:var(--txt); font-size:14px; line-height:1.7; }
+.paris-figure { margin:32px 0 0; }
+.paris-figure figcaption { text-align:center; font-size:13px; line-height:1.7; color:var(--muted); margin-bottom:12px; }
+.paris-figure a { display:block; border-radius:5px; overflow:hidden; border:1px solid var(--line); }
+.paris-figure a:focus-visible { outline:2px solid var(--accent); outline-offset:5px; }
+.paris-figure img { display:block; width:100%; height:auto; }
+.paris-mobile-pair { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:28px; max-width:720px; margin:auto; }
+.paris-stack { margin:30px 0; }
+.paris-stack>div { display:grid; grid-template-columns:180px minmax(0,1fr); gap:20px; padding:18px 0; border-top:1px solid var(--line); }
+.paris-stack dt { font:12px/1.8 var(--font-mono); color:var(--txt); }
+.paris-stack dd { margin:0; color:var(--txth); font-size:14px; line-height:1.8; }
+@media(max-width:900px) { .paris-intro__details { gap:32px; } }
+@media(max-width:640px) {
+  .paris-intro { padding-top:25px; padding-bottom:35px; }
+  .paris-intro__details { grid-template-columns:1fr; }
+  .paris-facts { grid-template-columns:1fr 1fr; border-left:0; border-top:1px solid var(--line); padding:24px 0 0; gap:20px; }
+  .paris-intro__details p { font-size:16px; }
+  .paris-mobile-pair { gap:14px; }
+  .paris-mobile-pair figcaption { min-height:44px; font-size:11px; }
+  .paris-stack>div { grid-template-columns:1fr; gap:6px; }
+}

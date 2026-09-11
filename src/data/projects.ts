@@ -1,9 +1,8 @@
-// Project metadata, kept identical to jackzhang.ca wording.
+// Original game copy is preserved; new projects are added here as the portfolio grows.
 
 export type Project = {
   kind?: 'Games' | 'Web Apps' | 'AI & Experiments'
   tags?: string[]
-  featured?: boolean
   slug: string
   number: string // '01' | '02' | '03'
   category: string // horizontal label (e.g. THIRD PERSON SHOOTER)
@@ -12,6 +11,7 @@ export type Project = {
   role: string
   description: string
   cover: string
+  coverFit?: 'cover' | 'contain'
   href: string
   genre: string
   engine: string
@@ -20,6 +20,7 @@ export type Project = {
   downloadLabel?: string
   altCover: string
   boldPhrases?: string[]
+  status?: string
 }
 
 export const projects: Project[] = [
@@ -27,7 +28,6 @@ export const projects: Project[] = [
     slug: 'harvest-onslaught',
     kind: 'Games',
     tags: ['Level Design', 'Blueprint'],
-    featured: true,
     number: '01',
     category: 'THIRD PERSON SHOOTER',
     title: 'Harvest Onslaught',
@@ -48,7 +48,6 @@ export const projects: Project[] = [
     slug: 'breakneck-battle-tank',
     kind: 'Games',
     tags: ['Level Design', 'C#'],
-    featured: true,
     number: '02',
     category: 'QUEST',
     title: 'Breakneck Battle Tank',
@@ -67,7 +66,6 @@ export const projects: Project[] = [
     slug: 'taleofnexus-thetrueguardian',
     kind: 'Games',
     tags: ['Level Design', 'Blueprint'],
-    featured: true,
     number: '03',
     category: 'CASUAL GAME',
     title: 'Tale of Nexus:',
@@ -88,7 +86,6 @@ export const projects: Project[] = [
     number: '04',
     kind: 'Games',
     tags: ['Level Design', 'Whiteboxing'],
-    featured: false,
     category: 'Third-person Puzzle Adventure',
     title: 'Phase Swap Demo',
     role: 'Solo Demo',
@@ -100,11 +97,37 @@ export const projects: Project[] = [
     devTime: '14 Days Quick Demo Whiteboxing',
     altCover: 'Phase Swap Demo cover: translucent cyan and solid magenta platforms in a graybox laboratory',
   },
+  {
+    slug: 'paris-tour',
+    number: '05',
+    kind: 'Web Apps',
+    tags: ['React', 'TypeScript', 'AI', 'Supabase', 'UI / UX', 'Collaboration'],
+    category: 'AI TRAVEL PLANNER',
+    title: 'Paris Tour',
+    role: 'Product Design / Development',
+    description: 'Built from my own travel-planning needs, Paris Tour brings a shared itinerary, interactive map and AI assistant into one workspace. Travel companions can plan together, rearrange daily stops and keep their changes in sync. Currently focused on Paris, with more destinations planned.',
+    cover: '/assets/paris-tour/cover-designed.webp',
+    coverFit: 'contain',
+    href: 'https://paristour.vercel.app',
+    genre: 'Collaborative travel planning',
+    engine: 'React / TypeScript',
+    devTime: 'Personal project',
+    status: 'Ongoing',
+    altCover: 'Paris Tour designed cover featuring the trip-planning interface against a softly lit Paris backdrop',
+  },
 ]
 
 export function getProject(slug: string) {
   return projects.find((p) => p.slug === slug)
 }
+
+// Curated independently from the library. Replace a selection as new work is
+// added; keep the homepage limited to three representative projects.
+export const featuredProjects = [
+  'harvest-onslaught',
+  'paris-tour',
+  'breakneck-battle-tank',
+].slice(0, 3).map(getProject).filter((project): project is Project => Boolean(project))
 
 export function getNextProject(slug: string): Project | undefined {
   const idx = projects.findIndex((p) => p.slug === slug)

@@ -6,7 +6,7 @@ export default function ProjectCard({ project: p }: { project: Project }) {
   return (
     <article className="work-card">
       <Link to={'/' + p.slug} className="work-card__visual" aria-label={`View ${p.title}`}>
-        <img src={p.cover} alt={p.altCover} loading="lazy" />
+        <img src={p.cover} alt={p.altCover} loading="lazy" style={p.coverFit ? { objectFit: p.coverFit } : undefined} />
       </Link>
       <div className="work-card__body">
         <div className="work-card__eyebrow"><span className="work-card__number" aria-label={`Project ${p.number}`}>{p.number}</span><span>{p.category}</span><span>{p.engine}</span></div>
