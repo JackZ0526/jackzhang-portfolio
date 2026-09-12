@@ -9,11 +9,12 @@ export default function HomeHero() {
         <div className="hero-topline"><span>PERSONAL PORTFOLIO</span><span>VANCOUVER, CANADA</span></div>
         <div className="hero-composition">
         <div className="hero-copy">
-        <p className="home-hero__role">LEVEL DESIGNER / GAME DESIGNER</p>
+        <p className="home-hero__role">GAME DESIGN / PRODUCT EXPLORATION</p>
         <h1 className="home-hero__title">JACK ZHANG</h1>
         <p className="home-hero__intro">
-          Passionate Level Designer, Game Designer, and Developer based in
-          Vancouver. Proficient in both Unity and Unreal Engine
+          Vancouver-based designer working across games, web apps and AI
+          experiments. I shape the experience, guide iteration and collaborate
+          with people and coding agents to bring ideas to life.
         </p>
         <a className="primary-link" href="#work">Explore my work <ArrowDownRight size={18} /></a>
         </div>

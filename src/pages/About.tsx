@@ -27,30 +27,33 @@ export default function About() {
     <div className="about container--narrow">
       <div className="about__hero">
         <h1 className="about__name">Jack Zhang</h1>
-        <p className="about__role">LEVEL DESIGNER / GAME DESIGNER</p>
+        <p className="about__role">GAME DESIGN / PRODUCT EXPLORATION</p>
       </div>
 
       <section className="about__summary">
         <h2 className="about__h2">SHORT SUMMARY</h2>
         <p>
-          I am a passionate Level Designer, Game Designer, and Developer with a
-          year of game development experience at VFS Game Design Program. I
-          specialize in creating immersive and engaging gameplay experiences
-          using Unreal Engine, Blueprint Scripting, Unity, and C#. From
-          designing levels for third-person mech shooters to prototyping
-          mechanics for isometric tank combat games, I focus on optimizing
-          player engagement and delivering polished results.
+          I&rsquo;m a designer based in Vancouver with a background in game and
+          level design, including a year in the VFS Game Design Program. My
+          work ranges from levels for a third-person mech shooter to mechanics
+          for an isometric tank combat game. Working with artists, programmers
+          and narrative designers taught me to communicate ideas clearly and
+          refine an experience through collaboration and playtesting.
         </p>
         <p>
-          Collaboration is at the heart of my work. I&rsquo;ve worked closely
-          with artists, programmers, and narrative designers to implement
-          in-game events, cutscenes, and gameplay features, ensuring cohesive
-          projects. Using tools like Gaea and Unreal, I&rsquo;ve created
-          detailed environments while streamlining production pipelines. My
-          experience with Unity and C# includes designing UI and gameplay
-          features that enhance player experiences. I also take pride in my
-          ability to document and communicate design ideas effectively,
-          ensuring smooth teamwork and project success.
+          That practice now extends to web apps and AI experiments. Paris Tour
+          grew out of my own need to plan trips with other people, with a focus
+          on collaboration, visual style and motion. GomokuAI and XiangqiAI
+          became a way to explore how training decisions and real playtesting
+          shape the behaviour of a learning agent.
+        </p>
+        <p>
+          Across these projects, I focus on defining the problem, shaping the
+          experience and deciding what to improve next. I also work with coding
+          agents to turn ideas into working projects. In the Board Game AI
+          series, all implementation code was produced by coding agents; my
+          contribution was project direction, experiment design and UX
+          iteration, guided by training reviews and feedback from players.
         </p>
       </section>
 
