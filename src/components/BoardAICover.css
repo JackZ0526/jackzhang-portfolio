@@ -1,0 +1,42 @@
+.board-ai-cover {
+  container-type:inline-size;
+  position:absolute;
+  inset:0;
+  overflow:hidden;
+  background:linear-gradient(130deg,#14221e 0%,#101615 45%,#251c16 100%);
+  color:#edf2ef;
+}
+.board-ai-cover__heading {
+  position:absolute;
+  inset:6% 5% auto;
+  display:flex;
+  align-items:baseline;
+  justify-content:space-between;
+  gap:3%;
+}
+.board-ai-cover__heading>span:first-child {
+  font:450 4cqw/1.15 var(--font-display);
+  letter-spacing:-.045em;
+}
+.board-ai-cover__heading>span:last-child {
+  font:400 1.3cqw/1.4 var(--font-mono);
+  color:#acb9b0;
+}
+.board-ai-cover__screens {
+  position:absolute;
+  inset:23% 5% 7%;
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:3%;
+  align-items:start;
+}
+.board-ai-cover .board-ai-cover__screens>img {
+  display:block;
+  width:100%;
+  height:auto;
+  max-height:100%;
+  object-fit:contain;
+  border:1px solid #ffffff16;
+  border-radius:1cqw;
+  box-shadow:0 1cqw 3cqw #0004;
+}

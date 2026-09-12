@@ -1,0 +1,14 @@
+{
+  "gomoku": {
+    "run": "gui_v2",
+    "rows": 100,
+    "first": 1,
+    "last": 100
+  },
+  "xiangqi": {
+    "run": "strategic_v2",
+    "rows": 722,
+    "first": 491,
+    "last": 1212
+  }
+}

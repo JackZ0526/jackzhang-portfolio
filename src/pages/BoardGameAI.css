@@ -1,0 +1,86 @@
+.ai-intro { padding-block:36px 48px; }
+.ai-intro h1 { font:450 clamp(44px,6vw,80px)/1.12 var(--font-display); letter-spacing:-.055em; margin:18px 0; }
+.ai-intro__lead { font-size:clamp(22px,3vw,33px); line-height:1.4; letter-spacing:-.03em; margin:0 0 28px; }
+.ai-intro__details { display:grid; grid-template-columns:1.5fr 1fr; gap:72px; }
+.ai-intro__details>p { font-size:17px; line-height:1.85; color:var(--txth); margin:0; max-width:700px; }
+.ai-facts { margin:0; display:grid; gap:12px; }
+.ai-facts>div { display:grid; grid-template-columns:110px 1fr; gap:16px; }
+.ai-facts dt { font:12px/1.8 var(--font-mono); color:var(--muted); }
+.ai-facts dd { margin:0; font-size:14px; }
+.ai-board-pair { display:grid; grid-template-columns:1fr 1fr; gap:48px; padding:30px; margin-top:40px; background:var(--surface); border:1px solid var(--line); border-radius:6px; }
+.ai-board { min-width:0; display:flex; flex-direction:column; gap:16px; }
+.ai-board__name { display:flex; justify-content:space-between; align-items:center; font-size:20px; letter-spacing:-.025em; }
+.ai-board__image { height:clamp(220px,30vw,370px); display:flex; align-items:center; justify-content:center; }
+.ai-board__image img { width:auto; height:auto; max-width:100%; max-height:100%; border-radius:3px; transition:transform .45s var(--ease); }
+.ai-board:hover .ai-board__image img { transform:translateY(-3px); }
+.ai-board__meta { font:12px/1.8 var(--font-mono); color:var(--muted); text-align:center; }
+.ai-intro__caption,.ai-fineprint { color:var(--muted); font-size:13px; line-height:1.8; margin:14px 0 0; }
+.ai-intro__caption { text-align:center; }
+.ai-details { display:grid; grid-template-columns:1fr 1fr; gap:32px; border-top:1px solid var(--line); padding-top:26px; margin-top:32px; }
+.ai-details h3 { font-size:18px; margin:0 0 8px; }
+.ai-details p { color:var(--txth); font-size:16px; line-height:1.8; margin:0; }
+.ai-comparison { margin:30px 0 0; }
+.ai-comparison>div { display:grid; grid-template-columns:175px 1fr; gap:24px; border-top:1px solid var(--line); padding-block:20px; }
+.ai-comparison dt { font-size:14px; }
+.ai-comparison dd { margin:0; font-size:16px; color:var(--txth); line-height:1.8; }
+.ai-benchmark { margin:32px 0 0; border-block:1px solid var(--line); padding:24px 0; }
+.ai-benchmark figcaption { font:12px/1.8 var(--font-mono); color:var(--muted); margin-bottom:24px; }
+.ai-benchmark dl { display:grid; gap:22px; margin:0; }
+.ai-benchmark dt { color:var(--txth); font-size:14px; margin-bottom:10px; }
+.ai-benchmark dd { display:grid; grid-template-columns:minmax(0,1fr) 100px; align-items:center; gap:18px; margin:0; }
+.ai-benchmark__bar { height:6px; border-radius:2px; }
+.ai-benchmark__bar--before { width:100%; background:var(--muted); opacity:.55; }
+.ai-benchmark__bar--after { width:40.34%; background:var(--accent); }
+.ai-benchmark strong { flex-shrink:0; font:500 23px/1 var(--font-mono); font-variant-numeric:tabular-nums; }
+.ai-benchmark strong span { font-size:14px; color:var(--muted); }
+.ai-benchmark>p { color:var(--muted); font-size:13px; line-height:1.8; margin:24px 0 0; max-width:680px; }
+.ai-figure { margin:32px 0 0; }
+.ai-figure figcaption,.ai-loop figcaption { text-align:center; color:var(--muted); font-size:14px; line-height:1.7; margin-bottom:14px; }
+.ai-figure a { display:block; overflow:hidden; border:1px solid var(--line); border-radius:5px; }
+.ai-figure img { width:100%; height:auto; display:block; }
+.ai-loop { margin:32px 0; }
+.ai-loop ol { list-style:none; padding:0; display:grid; grid-template-columns:repeat(4,minmax(0,1fr)); margin:22px 0 0; border-top:1px solid var(--line); border-bottom:1px solid var(--line); }
+.ai-loop li { position:relative; padding:24px 16px; border-right:1px solid var(--line); }
+.ai-loop li:last-child { border:0; }
+.ai-loop li>span { font:12px var(--font-mono); color:var(--accent); }
+.ai-loop h3 { font-size:17px; margin:14px 0 8px; }
+.ai-loop li p { color:var(--txth); font-size:14px; line-height:1.75; margin:0; }
+.ai-loop__return { text-align:center; color:var(--muted); font:13px/1.8 var(--font-mono); padding:14px 0; margin:0; }
+.ai-records { margin-top:32px; }
+.ai-records__tabs { display:flex; gap:28px; border-bottom:1px solid var(--line); }
+.ai-records__tabs button { background:none; border:0; border-bottom:2px solid transparent; padding:12px 0; cursor:pointer; color:var(--muted); font-size:15px; }
+.ai-records__tabs button[aria-selected='true'] { color:var(--accent); border-bottom-color:var(--accent); }
+.ai-chart { border:1px solid var(--line); background:var(--surface); border-radius:5px; padding:20px 10px 6px; }
+.ai-chart figcaption { font:12px/1.8 var(--font-mono); padding-inline:10px; }
+.ai-chart a { border:0; }
+.ai-chart .ai-chart__light { display:none; }
+:root[data-theme='light'] .ai-chart .ai-chart__dark { display:none; }
+:root[data-theme='light'] .ai-chart .ai-chart__light { display:block; }
+.ai-records__note { font-size:16px; line-height:1.8; color:var(--txth); margin:20px 0 14px; }
+.ai-records [role='tabpanel'] { padding-bottom:14px; }
+.ai-page .primary-link { margin-top:12px; }
+@media(max-width:900px) {
+  .ai-intro__details { gap:32px; }
+  .ai-facts>div { grid-template-columns:1fr; gap:2px; }
+  .ai-board-pair { gap:24px; padding:24px; }
+  .ai-loop ol { grid-template-columns:repeat(2,minmax(0,1fr)); }
+  .ai-loop li:nth-child(2) { border-right:0; }
+  .ai-loop li:nth-child(-n+2) { border-bottom:1px solid var(--line); }
+}
+@media(max-width:600px) {
+  .ai-intro { padding-block:25px 34px; }
+  .ai-intro__details { grid-template-columns:1fr; gap:24px; }
+  .ai-intro__details>p { font-size:16px; }
+  .ai-facts { border-top:1px solid var(--line); padding-top:20px; }
+  .ai-facts>div { grid-template-columns:100px 1fr; gap:12px; }
+  .ai-board-pair { gap:14px; padding:16px 12px; margin-top:28px; }
+  .ai-board__name { font-size:16px; }
+  .ai-board__name svg { display:none; }
+  .ai-board__image { height:clamp(130px,40vw,220px); }
+  .ai-board__meta { font:12px/1.7 var(--font-mono); }
+  .ai-details { grid-template-columns:1fr; gap:24px; }
+  .ai-comparison>div { grid-template-columns:1fr; gap:6px; }
+  .ai-chart { padding:16px 0 6px; }
+  .ai-chart img { min-height:180px; object-fit:contain; }
+}
+@media(prefers-reduced-motion:reduce) { .ai-board__image img { transition:none; } .ai-board:hover .ai-board__image img { transform:none; } }

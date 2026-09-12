@@ -115,6 +115,24 @@ export const projects: Project[] = [
     status: 'Ongoing',
     altCover: 'Paris Tour designed cover featuring the trip-planning interface against a softly lit Paris backdrop',
   },
+  {
+    slug: 'board-game-ai',
+    number: '06',
+    kind: 'AI & Experiments',
+    tags: ['GomokuAI', 'XiangqiAI', 'Python', 'PyTorch', 'C++', 'MCTS', 'Reinforcement Learning'],
+    category: 'SELF-PLAY & REINFORCEMENT LEARNING',
+    title: 'Board Game AI',
+    role: 'Project Direction · Experiment Design · UX Iteration',
+    description: 'A personal GomokuAI and XiangqiAI series led through coding agents. I defined goals, guided experiments and shaped the playable experience through training reviews and playtesting. All implementation code was produced by coding agents.',
+    cover: '/assets/board-game-ai/gomoku-web.webp',
+    coverFit: 'contain',
+    href: '/board-game-ai',
+    genre: 'Board game AI research',
+    engine: 'Python / PyTorch / C++',
+    devTime: 'Personal series',
+    status: 'Ongoing experiments',
+    altCover: 'Actual GomokuAI browser interface with the board, trained neural model and search controls',
+  },
 ]
 
 export function getProject(slug: string) {
@@ -126,7 +144,7 @@ export function getProject(slug: string) {
 export const featuredProjects = [
   'harvest-onslaught',
   'paris-tour',
-  'breakneck-battle-tank',
+  'board-game-ai',
 ].slice(0, 3).map(getProject).filter((project): project is Project => Boolean(project))
 
 export function getNextProject(slug: string): Project | undefined {

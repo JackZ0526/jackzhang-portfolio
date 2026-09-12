@@ -81,6 +81,6 @@ export default function ParisTour() {
         <P><strong>Paris is the currently supported destination.</strong> The groundwork for additional destinations is already in place, but those options are not yet enabled. Expanding beyond Paris is the next direction for the project.</P>
       </ProjectSection>
     </ProjectContent>
-    <ProjectPager prevHref="/phase-swap-demo" nextHref="/harvest-onslaught" />
+    <ProjectPager prevHref="/phase-swap-demo" nextHref="/board-game-ai" />
   </div>
 }

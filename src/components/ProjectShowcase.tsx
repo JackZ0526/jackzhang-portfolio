@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom'
 import { ArrowUpRight } from 'lucide-react'
 import type { Project } from '../data/projects'
 import { renderDescription } from '../utils/renderDescription'
+import BoardAICover from './BoardAICover'
 
 export default function ProjectShowcase({ projects }: { projects: Project[] }) {
   const [active, setActive] = useState(0)
@@ -33,10 +34,10 @@ export default function ProjectShowcase({ projects }: { projects: Project[] }) {
       {projects.map((p, index) => <div key={p.slug} id={`panel-${p.slug}`} role="tabpanel" aria-labelledby={`tab-${p.slug}`}
         aria-hidden={index !== active} inert={index !== active} tabIndex={index === active ? 0 : -1} className={`showcase__panel${index === active ? ' is-active' : ''}`}>
         <Link className="showcase__image" to={'/' + p.slug} aria-label={`View ${p.title}`}>
-          <img src={p.cover} alt={p.altCover} loading="lazy" />
+          {p.slug === 'board-game-ai' ? <BoardAICover /> : <img src={p.cover} alt={p.altCover} loading="lazy" />}
         </Link>
         <div className="showcase__story">
-          <dl className="showcase__meta"><div><dt>TYPE</dt><dd>{p.category}</dd></div><div><dt>{p.kind === 'Web Apps' ? 'STACK' : 'ENGINE'}</dt><dd>{p.engine}</dd></div><div><dt>{p.status ? 'STATUS' : 'DURATION'}</dt><dd>{p.status ?? p.devTime}</dd></div></dl>
+          <dl className="showcase__meta"><div><dt>TYPE</dt><dd>{p.category}</dd></div><div><dt>{p.kind === 'Games' ? 'ENGINE' : 'STACK'}</dt><dd>{p.engine}</dd></div><div><dt>{p.status ? 'STATUS' : 'DURATION'}</dt><dd>{p.status ?? p.devTime}</dd></div></dl>
           <h3>{p.titleLines?.join(' ') ?? p.title}</h3>
           <p className="showcase__role">{p.role}</p>
           <p className="showcase__description">{renderDescription(p.description, p.boldPhrases)}</p>
