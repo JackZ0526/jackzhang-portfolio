@@ -1,5 +1,9 @@
 # Portfolio visual refresh
 
+> Historical design notes. Some branch names, layouts and instructions below
+> describe earlier iterations. See [README.md](README.md) for the current project
+> structure, featured-project selection and maintenance workflow.
+
 Work is on `design/visual-refresh`. Existing game page JSX, text, media URLs, and their order are retained. `src/styles/redesign.css` is the shared visual layer, loaded after legacy page styles.
 
 ## Add a project
